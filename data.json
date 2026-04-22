@@ -1,17 +1,65 @@
 {
-  "updated": "21.04.2026 kl. 21:30",
+  "updated": "22.04.2026 kl. 21:30",
   "saldo": 5000.0,
-  "trades": [],
+  "trades": [
+    {
+      "dato": "2026-04-22",
+      "tid": "21:18:24,634",
+      "action": "BUY",
+      "antall": 4.5759,
+      "symbol": "AAPL",
+      "strategi": "Momentum",
+      "konfidens": 78,
+      "grunn": "AAPL oppfyller de fleste Momentum-kriterier: pris over MA20/MA50/MA200, gyllen k",
+      "stop": 267.71,
+      "target": 295.85,
+      "inngang": 0,
+      "utgang": 0,
+      "pnl": 0,
+      "pnl_pct": 0,
+      "dager": 0,
+      "vinner": false
+    },
+    {
+      "dato": "2026-04-22",
+      "tid": "21:18:24,651",
+      "action": "BUY",
+      "antall": 5.6826,
+      "symbol": "HON",
+      "strategi": "RSI2_MeanRev",
+      "konfidens": 72,
+      "grunn": "HON oppfyller RSI(2) Mean Reversion-kriteriene: pris er over MA200 (langsiktig u",
+      "stop": 215.57,
+      "target": 228.54,
+      "inngang": 0,
+      "utgang": 0,
+      "pnl": 0,
+      "pnl_pct": 0,
+      "dager": 0,
+      "vinner": false
+    }
+  ],
   "posisjoner": [],
-  "dag_pnl": {},
-  "strat_count": {},
-  "strat_pnl": {},
-  "sym_count": {},
+  "dag_pnl": {
+    "2026-04-22": 0.0
+  },
+  "strat_count": {
+    "Momentum": 1,
+    "RSI2_MeanRev": 1
+  },
+  "strat_pnl": {
+    "Momentum": 0.0,
+    "RSI2_MeanRev": 0.0
+  },
+  "sym_count": {
+    "AAPL": 1,
+    "HON": 1
+  },
   "totalt": {
-    "handler": 0,
+    "handler": 2,
     "vinnere": 0,
-    "tapere": 0,
-    "winrate": 0,
+    "tapere": 2,
+    "winrate": 0.0,
     "tot_pnl": 0
   }
 }
