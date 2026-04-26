@@ -3,393 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Swing Trading Agent — Prosjektoversikt</title>
+<title>AI Swing Trading System v3</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8FAFC;color:#111827;line-height:1.7}
-  a{color:#1E2761;text-decoration:none}
-  nav{background:#1E2761;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-  .nav-logo{color:#fff;font-size:16px;font-weight:600}
-  .nav-links{display:flex;gap:24px;align-items:center}
-  .nav-links a{color:#CADCFC;font-size:13px}
-  .nav-links a:hover{color:#fff}
-  .nav-btn{background:#F4C430;color:#1E2761;padding:7px 18px;border-radius:8px;font-weight:600;font-size:13px;margin-left:8px}
-  .nav-btn:hover{background:#e6b800}
-  .hero{background:linear-gradient(135deg,#1E2761 0%,#16204A 100%);color:#fff;padding:80px 32px 70px;text-align:center}
-  .hero h1{font-size:46px;font-weight:700;margin-bottom:12px;letter-spacing:-1px}
-  .hero p{font-size:18px;color:#CADCFC;max-width:620px;margin:0 auto 36px}
-  .hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-  .hero-stat .num{font-size:34px;font-weight:700;color:#F4C430}
-  .hero-stat .lbl{font-size:11px;color:#CADCFC;margin-top:2px;text-align:center}
-  .section{max-width:960px;margin:0 auto;padding:60px 24px}
-  .section-title{font-size:26px;font-weight:700;color:#1E2761;margin-bottom:6px}
-  .section-sub{font-size:14px;color:#64748B;margin-bottom:32px}
-  .white-bg{background:#fff;padding:1px 0}
-  .card-grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-  .card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px}
-  .card-icon{font-size:28px;margin-bottom:12px;display:block}
-  .card h3{font-size:15px;font-weight:600;color:#1E2761;margin-bottom:6px}
-  .card p{font-size:13px;color:#475569;line-height:1.6}
-  .steps{display:flex;flex-direction:column;gap:12px}
-  .step{display:flex;align-items:flex-start;gap:16px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px 20px}
-  .step-num{min-width:40px;height:40px;border-radius:50%;background:#1E2761;color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .step-time{font-size:11px;font-weight:600;color:#64748B;margin-bottom:2px}
-  .step-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:4px}
-  .step-desc{font-size:13px;color:#475569}
-  .strat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-  .strat{background:#fff;border-left:4px solid #1E2761;border-radius:0 10px 10px 0;padding:18px 20px}
-  .strat-icon{font-size:22px;margin-bottom:8px;display:block}
-  .strat h3{font-size:14px;font-weight:600;color:#1E2761;margin-bottom:4px}
-  .strat p{font-size:12px;color:#475569;line-height:1.5}
-  .strat-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;background:#E1F5EE;color:#085041;margin-top:6px}
-  .backtest-box{background:linear-gradient(135deg,#1E2761,#16204A);border-radius:16px;padding:32px;color:#fff;margin:20px 0}
-  .backtest-box h3{font-size:18px;font-weight:700;margin-bottom:20px;color:#F4C430}
-  .bt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
-  .bt-stat .bt-num{font-size:30px;font-weight:700;color:#F4C430}
-  .bt-stat .bt-lbl{font-size:11px;color:#CADCFC;margin-top:2px}
-  .bt-note{font-size:12px;color:#8899AA;margin-top:16px;font-style:italic}
-  .risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
-  .risk-card{background:#fff;border-radius:12px;border:1px solid #E2E8F0;padding:20px;text-align:center}
-  .risk-num{font-size:34px;font-weight:700;margin-bottom:6px}
-  .risk-card h3{font-size:13px;font-weight:600;color:#111827;margin-bottom:6px}
-  .risk-card p{font-size:12px;color:#64748B}
-  .r1 .risk-num{color:#16A34A} .r2 .risk-num{color:#DC2626}
-  .r3 .risk-num{color:#1E2761} .r4 .risk-num{color:#D97706} .r5 .risk-num{color:#7C3AED}
-  .tech-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #E2E8F0}
-  .tech-table th{background:#1E2761;color:#fff;font-size:12px;font-weight:600;padding:12px 16px;text-align:left}
-  .tech-table td{padding:11px 16px;font-size:13px;border-bottom:1px solid #F1F5F9;color:#374151}
-  .tech-table tr:last-child td{border-bottom:none}
-  .tech-table tr:nth-child(even) td{background:#F8FAFC}
-  .tech-val{font-weight:600;color:#1E2761}
-  .timeline{display:flex;flex-direction:column;gap:0}
-  .tl-item{display:flex;gap:20px;position:relative}
-  .tl-item:not(:last-child):before{content:"";position:absolute;left:19px;top:48px;bottom:-20px;width:2px;background:#E2E8F0;z-index:0}
-  .tl-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;z-index:1}
-  .d1{background:#16A34A}.d2{background:#1E2761}.d3{background:#D97706}.d4{background:#DC2626}
-  .tl-content{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px 20px;margin-bottom:20px;flex:1}
-  .tl-content h3{font-size:14px;font-weight:600;margin-bottom:6px}
-  .tl-content p{font-size:13px;color:#475569}
-  .badge-now{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;background:#DCFCE7;color:#16A34A;margin-left:8px}
-  .quote-box{background:#1E2761;border-radius:14px;padding:32px;text-align:center;color:#fff;margin:32px 0}
-  .quote-box blockquote{font-size:17px;font-style:italic;color:#CADCFC;margin-bottom:10px;line-height:1.7}
-  .quote-box cite{font-size:13px;color:#8899AA}
-  .compare-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #F1F5F9}
-  .compare-row:last-child{border:none;font-weight:700;padding-top:10px;margin-top:4px}
-  footer{background:#16204A;color:#8899AA;text-align:center;padding:32px;font-size:13px}
-  footer strong{color:#CADCFC}
-  @media(max-width:600px){
-    .hero h1{font-size:28px}.hero-stats{gap:20px}.nav-links a:not(.nav-btn){display:none}
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8FAFC;color:#111827;line-height:1.7}
+a{color:#1E2761;text-decoration:none}
+nav{background:#1E2761;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{color:#fff;font-size:15px;font-weight:600}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:#CADCFC;font-size:13px}
+.nav-links a:hover{color:#fff}
+.nav-btn{background:#F4C430;color:#1E2761;padding:7px 18px;border-radius:8px;font-weight:600;font-size:13px}
+.hero{background:linear-gradient(135deg,#1E2761 0%,#16204A 100%);color:#fff;padding:72px 32px 64px;text-align:center}
+.hero h1{font-size:42px;font-weight:700;margin-bottom:10px;letter-spacing:-1px}
+.hero p{font-size:17px;color:#CADCFC;max-width:620px;margin:0 auto 32px}
+.badge-v3{display:inline-block;background:#F4C430;color:#1E2761;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;margin-bottom:16px}
+.stat-row{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.stat .n{font-size:30px;font-weight:700;color:#F4C430}
+.stat .l{font-size:11px;color:#CADCFC;margin-top:2px;text-align:center}
+.section{max-width:960px;margin:0 auto;padding:56px 24px}
+.section-title{font-size:24px;font-weight:700;color:#1E2761;margin-bottom:6px}
+.section-sub{font-size:14px;color:#64748B;margin-bottom:28px}
+.white-bg{background:#fff;padding:1px 0}
+.card-grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:22px}
+.card-icon{font-size:26px;margin-bottom:10px;display:block}
+.card h3{font-size:14px;font-weight:600;color:#1E2761;margin-bottom:5px}
+.card p{font-size:13px;color:#475569;line-height:1.6}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px}
+.arch-card{border-radius:10px;padding:16px;text-align:center}
+.arch-card .num{font-size:22px;font-weight:700;margin-bottom:4px}
+.arch-card h3{font-size:12px;font-weight:600;margin-bottom:4px}
+.arch-card p{font-size:11px;line-height:1.5;opacity:.85}
+.a1{background:#EFF6FF;color:#1E40AF}
+.a2{background:#E1F5EE;color:#085041}
+.a3{background:#FFF1F2;color:#991B1B}
+.a4{background:#FFFBEB;color:#854F0B}
+.a5{background:#F5F3FF;color:#4C1D95}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:16px 18px}
+.step-num{min-width:36px;height:36px;border-radius:50%;background:#1E2761;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-time{font-size:11px;font-weight:600;color:#64748B;margin-bottom:2px}
+.step-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:3px}
+.step-desc{font-size:12px;color:#475569}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.rule{background:#fff;border-radius:10px;border:1px solid #E2E8F0;padding:16px;text-align:center}
+.rule-val{font-size:28px;font-weight:700;margin-bottom:4px}
+.rule h3{font-size:12px;font-weight:600;color:#111827;margin-bottom:4px}
+.rule p{font-size:11px;color:#64748B}
+.r1 .rule-val{color:#16A34A}.r2 .rule-val{color:#DC2626}
+.r3 .rule-val{color:#1E2761}.r4 .rule-val{color:#D97706}.r5 .rule-val{color:#7C3AED}
+.compare{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #E2E8F0;font-size:13px}
+.compare th{background:#1E2761;color:#fff;font-weight:500;padding:10px 14px;text-align:left}
+.compare td{padding:9px 14px;border-bottom:1px solid #F1F5F9;color:#374151}
+.compare tr:last-child td{border:none}
+.compare tr:nth-child(even) td{background:#F8FAFC}
+.good{color:#16A34A;font-weight:600}.bad{color:#DC2626;font-weight:600}
+.cost-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.cost-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:20px}
+.cost-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:13px}
+.cost-row:last-child{border:none;font-weight:700;font-size:14px;padding-top:10px;margin-top:4px}
+.cost-val{font-weight:600;color:#1E2761}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:18px;position:relative}
+.tl-item:not(:last-child):before{content:"";position:absolute;left:17px;top:44px;bottom:-16px;width:2px;background:#E2E8F0;z-index:0}
+.tl-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;z-index:1}
+.d1{background:#16A34A}.d2{background:#3B82F6}.d3{background:#D97706}.d4{background:#DC2626}
+.tl-body{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 18px;margin-bottom:16px;flex:1}
+.tl-body h3{font-size:13px;font-weight:600;margin-bottom:4px}
+.tl-body p{font-size:12px;color:#475569}
+.badge-now{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;background:#DCFCE7;color:#16A34A;margin-left:8px}
+.badge-done{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;background:#DBEAFE;color:#1E40AF;margin-left:8px}
+.infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.infra{border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.infra-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.infra-live{background:#E1F5EE;border:1px solid #BBF7D0}
+.infra-dot-live{background:#16A34A;box-shadow:0 0 0 3px rgba(22,163,74,.2)}
+.infra-paper{background:#EFF6FF;border:1px solid #BFDBFE}
+.infra-dot-paper{background:#3B82F6;box-shadow:0 0 0 3px rgba(59,130,246,.2)}
+.infra-title{font-size:12px;font-weight:600}
+.infra-sub{font-size:11px;color:#64748B}
+.quote-box{background:#1E2761;border-radius:12px;padding:28px;text-align:center;color:#fff;margin:24px 0}
+.quote-box blockquote{font-size:16px;font-style:italic;color:#CADCFC;margin-bottom:8px;line-height:1.7}
+.quote-box cite{font-size:12px;color:#8899AA}
+footer{background:#16204A;color:#8899AA;text-align:center;padding:28px;font-size:13px}
+footer strong{color:#CADCFC}
+@media(max-width:600px){.hero h1{font-size:28px}.stat-row{gap:20px}.nav-links a:not(.nav-btn){display:none}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">🤖 AI Swing Trading Agent</div>
+  <div class="nav-logo">🤖 AI Swing Trading System</div>
   <div class="nav-links">
+    <a href="#arkitektur">Arkitektur</a>
     <a href="#hvordan">Slik fungerer det</a>
-    <a href="#strategier">Strategier</a>
-    <a href="#backtest">Backtest</a>
-    <a href="#risiko">Risiko</a>
-    <a href="#tech">Teknisk</a>
+    <a href="#risiko">Risikoregler</a>
+    <a href="#kostnader">Kostnader</a>
     <a href="#veien-videre">Fremover</a>
     <a href="resultater.html" class="nav-btn">📊 Resultater</a>
   </div>
 </nav>
 
 <div class="hero">
-  <h1>🤖 AI Swing Trading Agent</h1>
-  <p>Kunstig intelligens som handler aksjer og krypto automatisk — backtestet til +20% avkastning per år</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">$5,000</div><div class="lbl">Startkapital (simulert)</div></div>
-    <div class="hero-stat"><div class="num">3</div><div class="lbl">Handelsstrategier</div></div>
-    <div class="hero-stat"><div class="num">31</div><div class="lbl">Backtestede symboler</div></div>
-    <div class="hero-stat"><div class="num">+20%</div><div class="lbl">CAGR per år (backtest)</div></div>
-    <div class="hero-stat"><div class="num">70%</div><div class="lbl">Winrate (backtest)</div></div>
+  <div class="badge-v3">Versjon 3 — April 2026</div>
+  <h1>🤖 AI Swing Trading System</h1>
+  <p>Et strukturert trading-laboratorium — AI som analytiker, regler som beslutningstaker</p>
+  <div class="stat-row">
+    <div class="stat"><div class="n">0.5%</div><div class="l">Risiko per handel</div></div>
+    <div class="stat"><div class="n">2×ATR</div><div class="l">Stop loss</div></div>
+    <div class="stat"><div class="n">70+</div><div class="l">Min. signal score</div></div>
+    <div class="stat"><div class="n">26</div><div class="l">Symboler i univers</div></div>
+    <div class="stat"><div class="n">$5,000</div><div class="l">Papirkonto</div></div>
   </div>
 </div>
 
 <div class="section">
   <div class="section-title">Hva er dette prosjektet?</div>
-  <div class="section-sub">En enkel forklaring for familie og venner</div>
+  <div class="section-sub">Et systematisk swing trading-system bygget for å lære og forbedre seg over tid</div>
   <div class="card-grid-3">
     <div class="card">
+      <span class="card-icon">🔬</span>
+      <h3>Et trading-laboratorium</h3>
+      <p>Målet er ikke å tjene penger raskt — det er å bygge et system med dokumentert positiv forventningsverdi (expectancy). Vi trenger 100+ handler før vi kan evaluere strategien.</p>
+    </div>
+    <div class="card">
       <span class="card-icon">🤖</span>
-      <h3>Kunstig intelligens</h3>
-      <p>Claude AI fra Anthropic analyserer aksjer og krypto daglig og tar handelsbeslutninger basert på tre dokumenterte strategier med positiv historisk edge.</p>
+      <h3>AI som analytiker, ikke trader</h3>
+      <p>Claude AI scorer og forklarer hvert signal. Men AI plasserer aldri handler eller styrer posisjonsstørrelse. Det gjøres av hardkodede risikoregler som ikke kan overstyres.</p>
     </div>
     <div class="card">
-      <span class="card-icon">📈</span>
-      <h3>Swing trading</h3>
-      <p>Agenten holder posisjoner 2-5 dager for å fange kortsiktige kursbevegelser. Ikke day trading — tryggere, mer forutsigbart og fungerer med daglige data.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">☀️</span>
-      <h3>Én gang per dag</h3>
-      <p>Analysen kjøres kl. 09:15 NZ-tid etter US-markedet stenger. Ingen grunn til å holde øye med skjermen midt på natten.</p>
+      <span class="card-icon">📊</span>
+      <h3>Statistisk læring</h3>
+      <p>Hvert handler logges med R-multiples og expectancy. Systemet evalueres statistisk — ikke av AI. Ingen justeringer gjøres før 100 handler er fullført.</p>
     </div>
   </div>
 </div>
 
-<div id="hvordan" class="white-bg">
+<div id="arkitektur" class="white-bg">
 <div class="section">
-  <div class="section-title">Slik fungerer det</div>
-  <div class="section-sub">Automatisk fra analyse til handel — én gang per dag</div>
+  <div class="section-title">5-lags arkitektur</div>
+  <div class="section-sub">Hvert lag har én jobb — ingen lag kan overstyre et høyere lag</div>
+  <div class="arch-grid">
+    <div class="arch-card a1">
+      <div class="num">1</div>
+      <h3>Signal Engine</h3>
+      <p>Beregner alle indikatorer. SMA, ATR, RSI, relativ styrke vs SPY. Ingen AI.</p>
+    </div>
+    <div class="arch-card a2">
+      <div class="num">2</div>
+      <h3>AI Analytiker</h3>
+      <p>Claude scorer oppsettet 0–100 og forklarer risiko. Foreslår ikke handler.</p>
+    </div>
+    <div class="arch-card a3">
+      <div class="num">3</div>
+      <h3>Risikomotor</h3>
+      <p>Posisjonsstørrelse, kill switch, daglig stoppgrense. Overstyrer alt.</p>
+    </div>
+    <div class="arch-card a4">
+      <div class="num">4</div>
+      <h3>Eksekveringslag</h3>
+      <p>Alpaca API. Limit orders. Slippage-modell på 0.1% for realistisk simulering.</p>
+    </div>
+    <div class="arch-card a5">
+      <div class="num">5</div>
+      <h3>Handelslogg</h3>
+      <p>R-multiples, expectancy, profit factor. Ren statistikk — ingen AI-læring.</p>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <blockquote>«AI er analytiker, ikke trader. Risikoreglene overstyrer alt. Beslutninger må være målbare.»</blockquote>
+    <cite>Kjerneprinsipp — AI Swing Trading System v3</cite>
+  </div>
+</div>
+</div>
+
+<div id="hvordan" class="section">
+  <div class="section-title">Slik fungerer det daglig</div>
+  <div class="section-sub">Automatisk fra signalberegning til handelslogg</div>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
       <div>
-        <div class="step-time">Kl. 20:00 NZ-tid — kveldsscanning</div>
-        <div class="step-title">Forbereder neste dag</div>
-        <div class="step-desc">Scanneren analyserer 31 symboler og identifiserer de mest lovende kandidatene basert på tekniske indikatorer.</div>
+        <div class="step-time">Kl. 21:15 UTC = 09:15 NZ neste dag</div>
+        <div class="step-title">Signal Engine scanner 26 symboler</div>
+        <div class="step-desc">Beregner SMA20/50/200, ATR, RSI, relativ styrke vs SPY. Pre-filtrerer bort symboler med dårlig likviditet, earnings nær, eller utenfor trend.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div>
-        <div class="step-time">Kl. 09:15 NZ-tid = 16:15 New York</div>
-        <div class="step-title">Daglig analyse etter markedet stenger</div>
-        <div class="step-desc">Claude AI analyserer hvert symbol mot 3 strategier. Kun de med konfidens ≥ 65% vurderes for handel. VIX-filter justerer aggressivitet etter markedsforhold.</div>
+        <div class="step-time">Bare lovende oppsett sendes videre</div>
+        <div class="step-title">AI analytiker scorer hvert oppsett</div>
+        <div class="step-desc">Claude gir en score 0–100 basert på momentum (25p), trend (20p), relativ styrke (20p), volatilitetskvalitet (15p), likviditet (10p) og AI-filter (±20p). Kun score &gt;70 handles.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div>
-        <div class="step-time">Automatisk — neste åpning</div>
-        <div class="step-title">Ordrer plasseres med stop og mål</div>
-        <div class="step-desc">Kjøpsordrer plasseres med fast 2% stop loss og et klart mål. Maks 5 posisjoner holdes simultant. 4% risiko per handel.</div>
+        <div class="step-time">Risikomotoren beregner størrelse</div>
+        <div class="step-title">Posisjonsstørrelse = Risiko ÷ Stop-avstand</div>
+        <div class="step-desc">Risiko per handel: 0.5% av kapital ($25 på $5,000). Stop: 2×ATR under inngang. Antall aksjer = $25 ÷ stop-avstand. Maks 20% av kapital per posisjon.</div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div>
-        <div class="step-time">2-5 dager — exit på signal</div>
-        <div class="step-title">Holder og selger automatisk</div>
-        <div class="step-desc">Agenten selger når mål er nådd, stop er truffet, strategi-exit-signal oppstår eller etter maks 5 dager. Aldri hold gjennom earnings.</div>
+        <div class="step-time">Limit ordre plasseres</div>
+        <div class="step-title">Alpaca eksekuterer med 0.1% slippage-modell</div>
+        <div class="step-desc">Limit ordre brukes for bedre fills. 0.1% slippage antas for å modellere realistisk papir→live overgang.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-time">Hver handel logges</div>
+        <div class="step-title">R-multiples og expectancy beregnes løpende</div>
+        <div class="step-desc">Expectancy = (winrate × snitt-vinner) – (taperate × snitt-taper). Strategien evalueres kun etter 100+ handler.</div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-<div id="strategier" class="section">
-  <div class="section-title">De 3 handelsstrategiene</div>
-  <div class="section-sub">Valgt gjennom backtest 2022-2026 — alle med dokumentert positiv edge på daglige data</div>
-  <div class="strat-grid">
-    <div class="strat">
-      <span class="strat-icon">⚡</span>
-      <h3>Momentum Swing</h3>
-      <p>Kjøper pullback i sterk uptrend når pris er over MA50 og MA200, MACD er bullish og RSI er mellom 40-65. Basert på Paul Tudor Jones sin 200MA-metode. Holder 2-5 dager.</p>
-      <span class="strat-badge">Backtest: 63.9% winrate | PF 1.46 | $4,192 P&L</span>
-    </div>
-    <div class="strat">
-      <span class="strat-icon">🔄</span>
-      <h3>RSI(2) Mean Reversion</h3>
-      <p>Kjøper kraftig kortsiktig dipp (RSI-2 under 10) i langsiktig uptrend. Larry Connors sin metode — dokumentert 70-85% winrate siden 1990-tallet. Selger når RSI(2) > 80.</p>
-      <span class="strat-badge">Backtest: 75.6% winrate | PF 1.10 | $1,362 P&L</span>
-    </div>
-    <div class="strat">
-      <span class="strat-icon">📅</span>
-      <h3>Catalyst Swing</h3>
-      <p>Rir på optimismen i forkant av kjente earnings-rapporter. Kjøper 2-3 uker før og selger FØR rapporten annonseres. Unngår overraskelsesrisiko helt.</p>
-      <span class="strat-badge">Backtest: 75.0% winrate | PF 1.87 | $618 P&L</span>
-    </div>
-  </div>
-  <div class="quote-box">
-    <blockquote>«90% av en god trader er risikostyring. Det viktigste er å bevare kapitalen.»</blockquote>
-    <cite>— Paul Tudor Jones, en av verdens mest suksessfulle tradere</cite>
-  </div>
-</div>
-
-<div id="backtest" class="white-bg">
+<div id="risiko" class="white-bg">
 <div class="section">
-  <div class="section-title">Backtestresultater 2022–2026</div>
-  <div class="section-sub">Realistisk portfolio-simulering med $5,000 — 54 symboler testet, 1,630 handler</div>
-  <div class="backtest-box">
-    <h3>📊 Portfolio backtest — $5,000 | 5 posisjoner | 4% risiko | 2% stop</h3>
-    <div class="bt-grid">
-      <div class="bt-stat"><div class="bt-num">$11,171</div><div class="bt-lbl">Sluttkapital</div></div>
-      <div class="bt-stat"><div class="bt-num">+123%</div><div class="bt-lbl">Total avkastning</div></div>
-      <div class="bt-stat"><div class="bt-num">+20.6%</div><div class="bt-lbl">CAGR per år</div></div>
-      <div class="bt-stat"><div class="bt-num">69.9%</div><div class="bt-lbl">Winrate</div></div>
-      <div class="bt-stat"><div class="bt-num">-17%</div><div class="bt-lbl">Maks drawdown</div></div>
-      <div class="bt-stat"><div class="bt-num">1.02</div><div class="bt-lbl">Sharpe ratio</div></div>
-    </div>
-    <p class="bt-note">S&P 500 gir historisk ~10% per år. Agenten slår markedet med dobbel margin i backtesten. NB: Historiske resultater garanterer ikke fremtidig avkastning.</p>
+  <div class="section-title">Risikoregler — overordnet alt</div>
+  <div class="section-sub">Disse reglene er hardkodet og kan ikke overstyres av AI</div>
+  <div class="rule-grid">
+    <div class="rule r1"><div class="rule-val">0.5%</div><h3>Risiko per handel</h3><p>$25 på $5,000 konto. ATR-basert posisjonsstørrelse.</p></div>
+    <div class="rule r2"><div class="rule-val">2%</div><h3>Daglig stopp</h3><p>Er kontoen ned 2% på én dag stopper all handel automatisk.</p></div>
+    <div class="rule r3"><div class="rule-val">5</div><h3>Maks posisjoner</h3><p>Aldri mer enn 5 åpne posisjoner simultant.</p></div>
+    <div class="rule r4"><div class="rule-val">8%</div><h3>Maks drawdown</h3><p>System-pause hvis total drawdown overstiger 8%.</p></div>
+    <div class="rule r5"><div class="rule-val">2×ATR</div><h3>Stop loss</h3><p>Tilpasser seg aksjonens volatilitet — ikke fast prosent.</p></div>
+    <div class="rule r1"><div class="rule-val">3×ATR</div><h3>Mål (target)</h3><p>R:R på 1.5:1 innebygd i hvert oppsett.</p></div>
+    <div class="rule r2"><div class="rule-val">10d</div><h3>Tid-stopp</h3><p>Alle posisjoner lukkes etter 10 dager uansett.</p></div>
+    <div class="rule r4"><div class="rule-val">70+</div><h3>Min. score</h3><p>Kun oppsett med AI-score over 70 handles.</p></div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px">
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:20px">
-      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:14px">Sammenligning av tilnærminger</div>
-      <div class="compare-row"><span style="color:#64748B">Day trading ORB+VWAP</span><span style="color:#DC2626;font-weight:600">-11.5%</span></div>
-      <div class="compare-row"><span style="color:#64748B">Day trading Momentum</span><span style="color:#D97706;font-weight:600">+0.6%</span></div>
-      <div class="compare-row"><span style="color:#64748B">S&P 500 (historisk)</span><span style="color:#64748B;font-weight:600">~10%/år</span></div>
-      <div class="compare-row" style="border-top:2px solid #E2E8F0"><span style="color:#111827">Swing trading (denne)</span><span style="color:#16A34A;font-weight:700">+20.6%/år</span></div>
-    </div>
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:20px">
-      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:14px">Topp 5 symboler (backtest)</div>
-      <div class="compare-row"><span>WMT</span><span style="color:#16A34A;font-weight:600">78% wr · +$479</span></div>
-      <div class="compare-row"><span>CAT</span><span style="color:#16A34A;font-weight:600">80% wr · +$433</span></div>
-      <div class="compare-row"><span>INTC</span><span style="color:#16A34A;font-weight:600">81% wr · +$422</span></div>
-      <div class="compare-row"><span>AMZN</span><span style="color:#16A34A;font-weight:600">75% wr · +$389</span></div>
-      <div class="compare-row"><span>AAPL</span><span style="color:#16A34A;font-weight:600">71% wr · +$228</span></div>
-    </div>
+
+  <div style="margin-top:24px">
+    <div style="font-size:14px;font-weight:600;color:#1E2761;margin-bottom:12px">Automatiske exit-betingelser</div>
+    <table class="compare">
+      <tr><th>Betingelse</th><th>Handling</th><th>Begrunnelse</th></tr>
+      <tr><td>Pris når stop (2×ATR)</td><td class="bad">Selg umiddelbart</td><td>Hard risikostyring</td></tr>
+      <tr><td>Pris når mål (3×ATR)</td><td class="good">Selg — ta gevinst</td><td>Lås inn 1.5R</td></tr>
+      <tr><td>SPY bryter 50 SMA</td><td class="bad">Lukk alle posisjoner</td><td>Markedsfilter</td></tr>
+      <tr><td>RSI(14) &gt; 80</td><td class="bad">Vurder å ta gevinst</td><td>Overkjøpt signal</td></tr>
+      <tr><td>10 dager holdt</td><td class="bad">Lukk uansett P&L</td><td>Tid-stopp</td></tr>
+      <tr><td>VIX &gt; 30</td><td class="bad">Ingen nye handler</td><td>Markedsrisiko</td></tr>
+    </table>
   </div>
 </div>
 </div>
 
-<div id="risiko" class="section">
-  <div class="section-title">Slik beskyttes pengene</div>
-  <div class="section-sub">Fem ufravikelige regler — agenten kan aldri bryte dem</div>
-  <div class="risk-grid">
-    <div class="risk-card r1"><div class="risk-num">2%</div><h3>Fast stop loss</h3><p>Alltid 2% under kjøpspris. Optimalisert fra backtest — beste kombinasjon av lav drawdown og høy avkastning.</p></div>
-    <div class="risk-card r2"><div class="risk-num">4%</div><h3>Risiko per handel</h3><p>Med $5,000 konto = maks $200 tapt per handel. Posisjonsstørrelse beregnes automatisk.</p></div>
-    <div class="risk-card r3"><div class="risk-num">5</div><h3>Maks posisjoner</h3><p>Aldri mer enn 5 posisjoner simultant. Spredt risiko, aldri all-in på én aksje.</p></div>
-    <div class="risk-card r4"><div class="risk-num">2.5%</div><h3>Daglig stopp</h3><p>Er kontoen ned 2.5% på én dag stopper agenten all handel automatisk resten av dagen.</p></div>
-    <div class="risk-card r5"><div class="risk-num">5d</div><h3>Maks holdetid</h3><p>Ingen posisjon holdes mer enn 5 dager. Aldri hold gjennom earnings-rapport.</p></div>
+<div id="kostnader" class="section">
+  <div class="section-title">Kostnader og infrastruktur</div>
+  <div class="section-sub">Komplett oversikt — live på DigitalOcean NYC</div>
+  <div class="cost-grid">
+    <div class="cost-card">
+      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:14px">Månedlige kostnader</div>
+      <div class="cost-row"><span>DigitalOcean Droplet</span><span class="cost-val">$6</span></div>
+      <div class="cost-row"><span>Claude Sonnet 4.6 API</span><span class="cost-val">~$20</span></div>
+      <div class="cost-row"><span>GitHub Pages + Yahoo Finance</span><span class="cost-val">Gratis</span></div>
+      <div class="cost-row"><span>Total per måned</span><span style="color:#1E2761;font-size:16px">~$26</span></div>
+      <div style="font-size:11px;color:#94A3B8;margin-top:8px">Break-even: 0.52%/mnd på $5,000 konto</div>
+    </div>
+    <div class="cost-card">
+      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:14px">Live infrastruktur</div>
+      <div class="infra-grid" style="gap:8px">
+        <div class="infra infra-live"><div class="infra-dot infra-dot-live"></div><div><div class="infra-title">DigitalOcean NYC</div><div class="infra-sub">137.184.55.106 · 24/7</div></div></div>
+        <div class="infra infra-live"><div class="infra-dot infra-dot-live"></div><div><div class="infra-title">Claude Sonnet 4.6</div><div class="infra-sub">Analytiker · 21:15 UTC daglig</div></div></div>
+        <div class="infra infra-live"><div class="infra-dot infra-dot-live"></div><div><div class="infra-title">GitHub Pages</div><div class="infra-sub">trading.tempusadventure.com</div></div></div>
+        <div class="infra infra-paper"><div class="infra-dot infra-dot-paper"></div><div><div class="infra-title">Alpaca Paper</div><div class="infra-sub">$5,000 · 26 symboler</div></div></div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div id="tech" class="white-bg">
+<div id="veien-videre" class="white-bg">
 <div class="section">
-  <div class="section-title">Teknisk oppsett</div>
-  <div class="section-sub">Alle komponenter og hva de gjør</div>
-  <table class="tech-table">
-    <tr><th>Komponent</th><th>Detalj</th><th>Merknad</th></tr>
-    <tr><td>Megler</td><td class="tech-val">Alpaca Markets</td><td>Regulert US-megler, $0 kurtasje på aksjer</td></tr>
-    <tr><td>AI-hjerne</td><td class="tech-val">Claude Sonnet 4.6</td><td>Anthropic — samme AI som i denne chatten</td></tr>
-    <tr><td>Programmering</td><td class="tech-val">Python 3.9</td><td>Mac (eller skyserver)</td></tr>
-    <tr><td>Markedsdata</td><td class="tech-val">Yahoo Finance API</td><td>Gratis historiske daglige data</td></tr>
-    <tr><td>Kontobalanse</td><td class="tech-val">$5,000 USD (papir)</td><td>Simulerte penger under prøveperioden</td></tr>
-    <tr><td>Kjøretid</td><td class="tech-val">09:15 NZ-tid daglig</td><td>Etter US-markedet stenger (16:00 ET)</td></tr>
-    <tr><td>Strategier</td><td class="tech-val">Momentum + RSI(2) + Catalyst</td><td>Backtestet 2022-2026</td></tr>
-    <tr><td>Stop loss</td><td class="tech-val">Fast 2%</td><td>Optimalisert — best risk/reward i backtest</td></tr>
-    <tr><td>Server</td><td class="tech-val">DigitalOcean NYC</td><td>$6/mnd — kjører 24/7 uavhengig av Mac</td></tr>
-    <tr><td>Claude API</td><td class="tech-val">~$20/mnd</td><td>31 symboler · én analyse per dag</td></tr>
-    <tr><td>Total kostnad</td><td class="tech-val">~$26/mnd</td><td>Server $6 + Claude API ~$20</td></tr>
-    <tr><td>Symboler</td><td class="tech-val">31 stk</td><td>17 aksjer + 9 ETFer + 5 krypto</td></tr>
-  </table>
-</div>
-</div>
-
-<div id="veien-videre" class="section">
   <div class="section-title">Veien videre</div>
-  <div class="section-sub">Fra simulerte penger til lønnsom automatisk handel</div>
+  <div class="section-sub">Metodisk utvikling — ingen snarveier</div>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-dot d1">1</div>
-      <div class="tl-content"><h3>Paper trading — 30 dager <span class="badge-now">PÅGÅR</span></h3><p>Teste alle tre strategiene med $5,000 simulerte penger. Validere at backtestresultatene holder i praksis.</p></div>
+      <div class="tl-body"><h3>Paper trading — samle data <span class="badge-now">NÅ</span></h3><p>Kjøre v3 uendret i 8–12 uker. Samle 100+ handler i tradelog.json. Ikke justere noe.</p></div>
     </div>
     <div class="tl-item">
       <div class="tl-dot d2">2</div>
-      <div class="tl-content"><h3>Live trading med $5,000 USD</h3><p>Bytte til ekte penger etter lønnsom papirperiode. Med 20% CAGR = forventet +$1,000 første år.</p></div>
+      <div class="tl-body"><h3>Statistisk evaluering</h3><p>Analysere expectancy, profit factor og winrate. Hvilke oppsett har positiv edge? Hvilke ikke? Bare data bestemmer.</p></div>
     </div>
     <div class="tl-item">
       <div class="tl-dot d3">3</div>
-      <div class="tl-content"><h3>Skyserver (DigitalOcean $6/mnd) <span class="badge-now" style="background:#DBEAFE;color:#1E40AF">FERDIG</span></h3><p>Agenten kjører på DigitalOcean NYC-server 24/7. Mac trenger ikke å være på. IP: 137.184.55.106</p></div>
+      <div class="tl-body"><h3>Live trading med $5,000 <span class="badge-done">Kun ved positiv expectancy</span></h3><p>Bytte til ekte penger kun hvis expectancy &gt; 0 på 100+ papir-handler. Oppgradere til SIP data ($99/mnd) samtidig.</p></div>
     </div>
     <div class="tl-item">
       <div class="tl-dot d4">4</div>
-      <div class="tl-content"><h3>Sanntidsdata (Alpaca Algo Trader+ $99/mnd)</h3><p>Oppgradere til live markedsdata og minuttdata for enda bedre signal-oppdagelse.</p></div>
+      <div class="tl-body"><h3>Skalering</h3><p>Øke kapital gradvis basert på dokumenterte resultater. Aldri basert på enkelt-handler eller kortsiktig P&L.</p></div>
     </div>
   </div>
 </div>
-
-
-<div class="white-bg">
-<div class="section">
-  <div class="section-title">💰 Kostnader og infrastruktur</div>
-  <div class="section-sub">Komplett oversikt over hva systemet koster per måned</div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:28px">
-
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px">
-      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:16px">📋 Månedlige kostnader</div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-size:13px;font-weight:500">DigitalOcean Droplet</div>
-            <div style="font-size:11px;color:#64748B">1GB RAM · Ubuntu · NYC</div>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#1E2761">$6</div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-size:13px;font-weight:500">Claude Sonnet 4.6 API</div>
-            <div style="font-size:11px;color:#64748B">31 symboler · 1x daglig · ~22 handelsdager</div>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#1E2761">~$20</div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-size:13px;font-weight:500">GitHub Pages (nettside)</div>
-            <div style="font-size:11px;color:#64748B">trading.tempusadventure.com</div>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#16A34A">Gratis</div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-size:13px;font-weight:500">Yahoo Finance (markedsdata)</div>
-            <div style="font-size:11px;color:#64748B">Daglige data for alle symboler</div>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#16A34A">Gratis</div>
-        </div>
-        <div style="border-top:2px solid #E2E8F0;padding-top:10px;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
-          <div style="font-size:14px;font-weight:700">Total per måned</div>
-          <div style="font-size:20px;font-weight:700;color:#1E2761">~$26</div>
-        </div>
-        <div style="font-size:11px;color:#64748B;text-align:right">≈ NOK 280/mnd · Ca. én middagsregning</div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px">
-      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:16px">🖥️ Infrastruktur (live)</div>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px">
-          <div style="font-size:12px;font-weight:600;color:#16A34A;margin-bottom:4px">✅ AKTIV — DigitalOcean NYC</div>
-          <div style="font-size:12px;color:#374151">Server: ubuntu-s-1vcpu-1gb-nyc1</div>
-          <div style="font-size:12px;color:#374151">IP: 137.184.55.106</div>
-          <div style="font-size:12px;color:#374151">Oppetid: 99.99% SLA</div>
-        </div>
-        <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px">
-          <div style="font-size:12px;font-weight:600;color:#16A34A;margin-bottom:4px">✅ AKTIV — GitHub Pages</div>
-          <div style="font-size:12px;color:#374151">trading.tempusadventure.com</div>
-          <div style="font-size:12px;color:#374151">Oppdateres automatisk etter handel</div>
-        </div>
-        <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px">
-          <div style="font-size:12px;font-weight:600;color:#1E40AF;margin-bottom:4px">📋 PAPER TRADING — Alpaca</div>
-          <div style="font-size:12px;color:#374151">Konto: $5,000 simulerte penger</div>
-          <div style="font-size:12px;color:#374151">Går live etter 30 dager lønnsom testing</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:24px">
-      <div style="font-size:13px;font-weight:600;color:#1E2761;margin-bottom:16px">📈 Break-even analyse</div>
-      <div style="font-size:12px;color:#64748B;margin-bottom:12px">For å dekke kostnadene på $26/mnd trenger agenten:</div>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="background:#F8FAFC;border-radius:8px;padding:10px">
-          <div style="font-size:12px;font-weight:600;color:#111827">Med $5,000 konto</div>
-          <div style="font-size:12px;color:#64748B">Break-even: 0.52% per måned = 6.3% per år</div>
-          <div style="font-size:12px;color:#16A34A;font-weight:600">Backtest CAGR 20.6% → godt over break-even ✓</div>
-        </div>
-        <div style="background:#F8FAFC;border-radius:8px;padding:10px">
-          <div style="font-size:12px;font-weight:600;color:#111827">Med $10,000 konto</div>
-          <div style="font-size:12px;color:#64748B">Break-even: 0.26% per måned = 3.1% per år</div>
-          <div style="font-size:12px;color:#16A34A;font-weight:600">Svært lett å slå med denne strategien ✓</div>
-        </div>
-        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px">
-          <div style="font-size:12px;color:#B45309">Fremtidig oppgradering: Alpaca Algo Trader+ $99/mnd gir sanntidsdata</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </div>
-</div>
+
 <footer>
-  <p><strong>AI Swing Trading Agent</strong> — Bygget med Claude AI (Anthropic)</p>
-  <p style="margin-top:8px">All handel skjer på en simulert papirkonto under prøveperioden · Ingen finansiell rådgivning</p>
-  <p style="margin-top:8px;font-size:11px">Sist oppdatert: April 2026</p>
+  <p><strong>AI Swing Trading System v3</strong> — Bygget med Claude AI (Anthropic) · April 2026</p>
+  <p style="margin-top:6px">All handel på simulert papirkonto · Ingen finansiell rådgivning</p>
 </footer>
 </body>
 </html>
