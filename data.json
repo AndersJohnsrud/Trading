@@ -1,65 +1,73 @@
 {
-  "updated": "23.04.2026 kl. 21:30",
-  "saldo": 4999.12,
+  "updated": "2026-04-26 09:54",
+  "saldo": 4985.12,
   "trades": [
     {
-      "dato": "2026-04-22",
-      "tid": "21:18:24,634",
-      "action": "BUY",
-      "antall": 4.5759,
-      "symbol": "AAPL",
-      "strategi": "Momentum",
-      "konfidens": 78,
-      "grunn": "AAPL oppfyller de fleste Momentum-kriterier: pris over MA20/MA50/MA200, gyllen k",
-      "stop": 267.71,
-      "target": 295.85,
-      "inngang": 0,
-      "utgang": 0,
-      "pnl": 0,
-      "pnl_pct": 0,
-      "dager": 0,
-      "vinner": false
+      "id": 1,
+      "date": "2026-04-26",
+      "symbol": "NVDA",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 208.48,
+      "stop_price": 197.71,
+      "target_price": 224.12,
+      "position_size": 2.3604,
+      "risk_usd": 24.93,
+      "rr_ratio": 1.5,
+      "ai_summary": "NVDA shows full MA alignment, dominant relative strength (+2.73% / +12.93%), and solid liquidity, but RSI(14) at 86.7 triggers an extreme overbought penalty (-10) and the extended run warrants caution — setup is valid but stretched, warranting reduced size and disciplined stop adherence.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     },
     {
-      "dato": "2026-04-22",
-      "tid": "21:18:24,651",
-      "action": "BUY",
-      "antall": 5.6826,
-      "symbol": "HON",
-      "strategi": "RSI2_MeanRev",
-      "konfidens": 72,
-      "grunn": "HON oppfyller RSI(2) Mean Reversion-kriteriene: pris er over MA200 (langsiktig u",
-      "stop": 215.57,
-      "target": 228.54,
-      "inngang": 0,
-      "utgang": 0,
-      "pnl": 0,
-      "pnl_pct": 0,
-      "dager": 0,
-      "vinner": false
+      "id": 2,
+      "date": "2026-04-26",
+      "symbol": "WMT",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 130.05,
+      "stop_price": 123.97,
+      "target_price": 138.85,
+      "position_size": 4.1892,
+      "risk_usd": 24.93,
+      "rr_ratio": 1.5,
+      "ai_summary": "WMT shows full SMA alignment with price above all key moving averages and solid 5-day relative strength vs SPY (+1.36%), but 20-day relative strength is negative (-2.36%) and RVOL is below threshold (0.95), capping conviction; setup is valid but not high-quality.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     }
   ],
-  "posisjoner": [],
-  "dag_pnl": {
-    "2026-04-22": 0.0
-  },
-  "strat_count": {
-    "Momentum": 1,
-    "RSI2_MeanRev": 1
-  },
-  "strat_pnl": {
-    "Momentum": 0.0,
-    "RSI2_MeanRev": 0.0
-  },
-  "sym_count": {
-    "AAPL": 1,
-    "HON": 1
-  },
+  "posisjoner": [
+    {
+      "symbol": "AAPL",
+      "inngang": 274.93,
+      "nåværende": 271.06,
+      "pnl": -17.72,
+      "pnl_pct": -1.41
+    },
+    {
+      "symbol": "HON",
+      "inngang": 212.67,
+      "nåværende": 213.17,
+      "pnl": 2.84,
+      "pnl_pct": 0.24
+    }
+  ],
+  "strat_count": {},
+  "statistikk": {},
   "totalt": {
     "handler": 2,
-    "vinnere": 0,
-    "tapere": 2,
-    "winrate": 0.0,
+    "lukket": 0,
+    "winrate": 0,
+    "expectancy": 0,
     "tot_pnl": 0
   }
 }
