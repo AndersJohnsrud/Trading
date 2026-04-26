@@ -370,7 +370,7 @@ function renderCharts(data, closed=[]) {
   // Cumulative P&L
   let cum = 0;
   const cumData   = closed.map(t => { cum += (t.pnl_usd||0); return Math.round(cum*100)/100; });
-  const cumLabels = closed.map((_,i) => ""+（i+1));
+  const cumLabels = closed.map((_,i) => ""+(i+1));
   charts.cum = new Chart(document.getElementById("cumChart"),{
     type:"line",
     data:{labels:cumLabels,datasets:[{label:"P&L",data:cumData,
