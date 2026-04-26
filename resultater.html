@@ -8,74 +8,77 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F8FAFC;color:#111827}
-#lock{position:fixed;inset:0;background:#1E2761;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}
-#lock h2{color:#fff;font-size:24px;font-weight:600}
-#lock p{color:#CADCFC;font-size:14px}
-.pin-display{display:flex;gap:12px;margin:8px 0}
-.pin-dot{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);transition:background .2s}
+#lock{position:fixed;inset:0;background:#1E2761;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:18px}
+#lock h2{color:#fff;font-size:22px;font-weight:600}
+#lock p{color:#CADCFC;font-size:13px}
+.pin-display{display:flex;gap:12px;margin:6px 0}
+.pin-dot{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.4);transition:background .2s}
 .pin-dot.filled{background:#F4C430;border-color:#F4C430}
-.numpad{display:grid;grid-template-columns:repeat(3,72px);gap:10px}
-.num-btn{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:22px;font-weight:500;cursor:pointer;transition:background .15s;font-family:inherit}
-.num-btn:hover{background:rgba(255,255,255,0.2)}
-.num-btn:active{background:rgba(255,255,255,0.3)}
-#lock-error{color:#FCA5A5;font-size:13px;height:20px;text-align:center}
+.numpad{display:grid;grid-template-columns:repeat(3,68px);gap:8px}
+.num-btn{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:20px;font-weight:500;cursor:pointer;transition:background .15s;font-family:inherit}
+.num-btn:hover{background:rgba(255,255,255,.2)}
+#lock-error{color:#FCA5A5;font-size:12px;height:18px;text-align:center}
 #main{display:none}
-nav{background:#1E2761;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{color:#fff;font-size:15px;font-weight:600}
-.nav-right{display:flex;align-items:center;gap:16px}
-.nav-link{color:#CADCFC;font-size:13px;text-decoration:none}
+nav{background:#1E2761;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{color:#fff;font-size:14px;font-weight:600}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-link{color:#CADCFC;font-size:12px;text-decoration:none}
 .nav-link:hover{color:#fff}
-.lock-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#CADCFC;font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:inherit}
-.hero{background:linear-gradient(135deg,#1E2761,#16204A);color:#fff;padding:36px 28px;text-align:center}
-.hero h1{font-size:28px;font-weight:700;margin-bottom:8px}
-.hero p{color:#CADCFC;font-size:14px;margin-bottom:24px}
-.stat-row{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
-.stat .n{font-size:28px;font-weight:700;color:#F4C430}
-.stat .l{font-size:11px;color:#CADCFC;margin-top:2px}
-.container{max-width:1100px;margin:0 auto;padding:28px 20px}
-.section-title{font-size:18px;font-weight:700;color:#1E2761;margin-bottom:4px}
-.section-sub{font-size:13px;color:#64748B;margin-bottom:16px}
-.card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;margin-bottom:18px}
-.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:18px}
-.chart-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px}
-.chart-title{font-size:12px;font-weight:600;color:#1E2761;margin-bottom:12px}
+.lock-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#CADCFC;font-size:11px;padding:5px 11px;border-radius:6px;cursor:pointer;font-family:inherit}
+.hero{background:linear-gradient(135deg,#1E2761,#16204A);color:#fff;padding:32px 24px;text-align:center}
+.hero h1{font-size:24px;font-weight:700;margin-bottom:6px}
+.hero p{color:#CADCFC;font-size:13px;margin-bottom:22px}
+.stat-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.stat .n{font-size:26px;font-weight:700;color:#F4C430}
+.stat .l{font-size:10px;color:#CADCFC;margin-top:1px}
+.container{max-width:1100px;margin:0 auto;padding:24px 18px}
+.sec-title{font-size:16px;font-weight:600;color:#1E2761;margin-bottom:4px}
+.sec-sub{font-size:12px;color:#64748B;margin-bottom:14px}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:16px;margin-bottom:16px}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:16px}
+.chart-card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:16px}
+.chart-title{font-size:12px;font-weight:600;color:#1E2761;margin-bottom:10px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px;text-align:center}
+.kpi-val{font-size:20px;font-weight:700;color:#1E2761}
+.kpi-lbl{font-size:10px;color:#64748B;margin-top:2px}
+.pos-card{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.pos-sym{font-size:14px;font-weight:700;color:#1E2761}
+.pos-meta{font-size:11px;color:#64748B}
+.pos-pnl{font-size:14px;font-weight:700}
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{background:#1E2761;color:#fff;font-weight:500;padding:10px 12px;text-align:left;white-space:nowrap}
-td{padding:9px 12px;border-bottom:1px solid #F1F5F9;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{background:#1E2761;color:#fff;font-weight:500;padding:9px 11px;text-align:left;white-space:nowrap}
+td{padding:8px 11px;border-bottom:1px solid #F1F5F9;vertical-align:middle}
 tr:hover td{background:#F8FAFC}
-.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500}
-.b-momentum{background:#E6F1FB;color:#185FA5}
-.b-rsi2{background:#E1F5EE;color:#085041}
-.b-catalyst{background:#FEF3C7;color:#B45309}
-.konf{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500}
-.grunn{color:#64748B;font-size:11px;max-width:200px}
-.pos-card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.pos-sym{font-size:15px;font-weight:700;color:#1E2761}
-.pos-strat{font-size:11px;color:#64748B}
-.pos-pnl{font-size:15px;font-weight:700}
-.pos-meta{font-size:11px;color:#64748B;text-align:right}
-.empty-msg{text-align:center;color:#94A3B8;padding:28px;font-size:13px}
-.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px}
-.sum-card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px;text-align:center}
-.sum-num{font-size:22px;font-weight:700;color:#1E2761}
-.sum-lbl{font-size:11px;color:#64748B;margin-top:2px}
-.strat-bar{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #F1F5F9}
-.strat-bar:last-child{border:none}
-.strat-name{font-size:12px;font-weight:500;width:130px;flex-shrink:0}
-.strat-track{flex:1;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden}
-.strat-fill{height:100%;border-radius:4px}
-.strat-stat{font-size:11px;color:#64748B;width:80px;text-align:right;flex-shrink:0}
-.updated{font-size:11px;color:#94A3B8;text-align:center;padding:16px}
-.disclaimer{font-size:11px;color:#94A3B8;text-align:center;padding:0 20px 20px;line-height:1.6}
-@media(max-width:600px){.stat-row{gap:16px}.stat .n{font-size:22px}}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:99px;font-weight:500}
+.b-m{background:#EFF6FF;color:#1E40AF}
+.b-r{background:#E1F5EE;color:#085041}
+.b-e{background:#FEF3C7;color:#B45309}
+.r-win{color:#16A34A;font-weight:600}
+.r-loss{color:#DC2626;font-weight:600}
+.empty-msg{text-align:center;color:#94A3B8;padding:24px;font-size:12px}
+.expectancy-box{border-radius:10px;padding:16px;margin-bottom:16px}
+.exp-positive{background:#E1F5EE;border:1px solid #BBF7D0}
+.exp-negative{background:#FFF1F2;border:1px solid #FECDD3}
+.exp-neutral{background:#F8FAFC;border:1px solid #E2E8F0}
+.infra-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.infra-chip{display:flex;align-items:center;gap:6px;font-size:11px;padding:5px 10px;border-radius:8px}
+.ic-live{background:#E1F5EE;color:#085041;border:1px solid #BBF7D0}
+.ic-paper{background:#EFF6FF;color:#1E40AF;border:1px solid #BFDBFE}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot-live{background:#16A34A}
+.dot-paper{background:#3B82F6}
+.updated{font-size:11px;color:#94A3B8;text-align:center;padding:14px}
+.disclaimer{font-size:11px;color:#94A3B8;text-align:center;padding:0 16px 18px;line-height:1.6}
+@media(max-width:600px){.stat-row{gap:16px}.stat .n{font-size:20px}.nav-right .nav-link:not(:last-of-type){display:none}}
 </style>
 </head>
 <body>
 
 <div id="lock">
-  <div style="font-size:36px">🔒</div>
-  <h2>AI Swing Trading Agent</h2>
+  <div style="font-size:32px">🔒</div>
+  <h2>AI Swing Trading System</h2>
   <p>Skriv inn PIN-kode for å se resultater</p>
   <div class="pin-display">
     <div class="pin-dot" id="d0"></div>
@@ -94,19 +97,19 @@ tr:hover td{background:#F8FAFC}
     <button class="num-btn" onclick="enter('7')">7</button>
     <button class="num-btn" onclick="enter('8')">8</button>
     <button class="num-btn" onclick="enter('9')">9</button>
-    <button class="num-btn" onclick="clear_pin()" style="font-size:16px">⌫</button>
+    <button class="num-btn" onclick="clear_pin()" style="font-size:14px">⌫</button>
     <button class="num-btn" onclick="enter('0')">0</button>
-    <button class="num-btn" onclick="submit_pin()" style="background:rgba(244,196,48,0.2);border-color:#F4C430;color:#F4C430;font-size:14px">OK</button>
+    <button class="num-btn" onclick="submit_pin()" style="background:rgba(244,196,48,.2);border-color:#F4C430;color:#F4C430;font-size:12px">OK</button>
   </div>
 </div>
 
 <div id="main">
 <nav>
-  <div class="nav-logo">🤖 AI Swing Trading Agent</div>
+  <div class="nav-logo">🤖 AI Swing Trading v3</div>
   <div class="nav-right">
     <a href="index.html" class="nav-link">← Tilbake</a>
     <a href="#posisjoner" class="nav-link">Posisjoner</a>
-    <a href="#grafer" class="nav-link">Grafer</a>
+    <a href="#statistikk" class="nav-link">Statistikk</a>
     <a href="#logg" class="nav-link">Handelslogg</a>
     <button class="lock-btn" onclick="lock()">🔒 Lås</button>
   </div>
@@ -114,96 +117,73 @@ tr:hover td{background:#F8FAFC}
 
 <div class="hero">
   <h1>📊 Trading Resultater</h1>
-  <p>Live oppdatert etter hver handelsdag — swing trading med Claude AI</p>
+  <p>AI Swing Trading System v3 · Oppdateres automatisk etter hver handelsdag</p>
   <div class="stat-row">
     <div class="stat"><div class="n" id="s-saldo">$5,000</div><div class="l">Kontobalanse</div></div>
     <div class="stat"><div class="n" id="s-pnl">$0</div><div class="l">Total P&L</div></div>
-    <div class="stat"><div class="n" id="s-total">0</div><div class="l">Totale handler</div></div>
-    <div class="stat"><div class="n" id="s-wr">0%</div><div class="l">Winrate</div></div>
-    <div class="stat"><div class="n" id="s-pos">0</div><div class="l">Åpne posisjoner</div></div>
-    <div class="stat"><div class="n" id="s-dager">0</div><div class="l">Handelsdager</div></div>
+    <div class="stat"><div class="n" id="s-handler">0</div><div class="l">Lukkede handler</div></div>
+    <div class="stat"><div class="n" id="s-exp">–</div><div class="l">Expectancy (R)</div></div>
+    <div class="stat"><div class="n" id="s-wr">–</div><div class="l">Winrate</div></div>
   </div>
 </div>
 
 <div class="container">
-    <!-- INFRASTRUKTUR STATUS -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px">
-      <div style="background:#fff;border:1px solid #BBF7D0;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#16A34A;flex-shrink:0;box-shadow:0 0 0 3px rgba(22,163,74,0.2)"></div>
-        <div><div style="font-size:11px;font-weight:600;color:#16A34A">LIVE — DigitalOcean NYC</div><div style="font-size:10px;color:#64748B">137.184.55.106 · $6/mnd</div></div>
-      </div>
-      <div style="background:#fff;border:1px solid #BBF7D0;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#16A34A;flex-shrink:0;box-shadow:0 0 0 3px rgba(22,163,74,0.2)"></div>
-        <div><div style="font-size:11px;font-weight:600;color:#16A34A">LIVE — Claude Sonnet 4.6</div><div style="font-size:10px;color:#64748B">Analyse kl. 09:15 NZ daglig · ~$20/mnd</div></div>
-      </div>
-      <div style="background:#fff;border:1px solid #BBF7D0;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#16A34A;flex-shrink:0;box-shadow:0 0 0 3px rgba(22,163,74,0.2)"></div>
-        <div><div style="font-size:11px;font-weight:600;color:#16A34A">LIVE — GitHub Pages</div><div style="font-size:10px;color:#64748B">trading.tempusadventure.com · Gratis</div></div>
-      </div>
-      <div style="background:#fff;border:1px solid #BFDBFE;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#3B82F6;flex-shrink:0;box-shadow:0 0 0 3px rgba(59,130,246,0.2)"></div>
-        <div><div style="font-size:11px;font-weight:600;color:#1E40AF">PAPER — Alpaca Markets</div><div style="font-size:10px;color:#64748B">$5,000 simulert · 31 symboler</div></div>
-      </div>
-    </div>
 
+  <!-- INFRA STATUS -->
+  <div class="infra-row">
+    <div class="infra-chip ic-live"><div class="dot dot-live"></div>DigitalOcean NYC · 21:15 UTC daglig</div>
+    <div class="infra-chip ic-live"><div class="dot dot-live"></div>Claude Sonnet 4.6 · Analytiker</div>
+    <div class="infra-chip ic-live"><div class="dot dot-live"></div>GitHub Pages · Auto-oppdatert</div>
+    <div class="infra-chip ic-paper"><div class="dot dot-paper"></div>Alpaca Paper · $5,000</div>
+  </div>
 
+  <!-- EXPECTANCY BOX -->
+  <div id="exp-box" class="expectancy-box exp-neutral">
+    <div style="font-size:13px;font-weight:600;margin-bottom:4px">📈 Forventningsverdi (Expectancy)</div>
+    <div id="exp-text" style="font-size:12px;line-height:1.6">Samler data... Trenger 5+ lukkede handler for statistikk. Mål: 100+ handler før strategievaluering.</div>
+  </div>
 
   <!-- ÅPNE POSISJONER -->
   <div id="posisjoner">
-    <div class="section-title">📌 Åpne posisjoner</div>
-    <div class="section-sub">Nåværende beholdning — oppdateres daglig</div>
-    <div id="pos-list">
-      <div class="empty-msg">Ingen åpne posisjoner — agenten søker etter signaler daglig</div>
-    </div>
+    <div class="sec-title">📌 Åpne posisjoner</div>
+    <div class="sec-sub">Nåværende beholdning med ATR-baserte stops</div>
+    <div id="pos-list"><div class="empty-msg">Ingen åpne posisjoner</div></div>
   </div>
 
-  <!-- STRATEGI FORDELING -->
-  <div style="margin-top:24px">
-    <div class="section-title">🎯 Strategifordeling</div>
-    <div class="section-sub">P&L per strategi</div>
-    <div class="card" id="strat-bars">
-      <div class="empty-msg">Ingen handler ennå</div>
-    </div>
-  </div>
-
-  <!-- OPPSUMMERING -->
-  <div style="margin-top:24px">
-    <div class="section-title">📈 Oppsummering</div>
-    <div class="section-sub">Nøkkeltall siden oppstart</div>
-    <div class="summary-grid" id="summary-grid">
-      <div class="sum-card"><div class="sum-num" id="sm-handler">0</div><div class="sum-lbl">Totale handler</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-vinnere">0</div><div class="sum-lbl">Vinnere</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-tapere">0</div><div class="sum-lbl">Tapere</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-wr">0%</div><div class="sum-lbl">Winrate</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-avgv">$0</div><div class="sum-lbl">Snitt vinner</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-avgt">$0</div><div class="sum-lbl">Snitt taper</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-best">-</div><div class="sum-lbl">Beste handel</div></div>
-      <div class="sum-card"><div class="sum-num" id="sm-avgd">0d</div><div class="sum-lbl">Snitt holdetid</div></div>
+  <!-- KPI GRID -->
+  <div id="statistikk" style="margin-top:20px">
+    <div class="sec-title">📊 Nøkkeltall</div>
+    <div class="sec-sub">Basert på lukkede handler</div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-val" id="kpi-handler">0</div><div class="kpi-lbl">Lukkede handler</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-wr">–</div><div class="kpi-lbl">Winrate</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-avgwin">–</div><div class="kpi-lbl">Snitt vinner (R)</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-avgloss">–</div><div class="kpi-lbl">Snitt taper (R)</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-exp">–</div><div class="kpi-lbl">Expectancy (R)</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-pf">–</div><div class="kpi-lbl">Profit factor</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-pnl">$0</div><div class="kpi-lbl">Total P&L</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-target">100</div><div class="kpi-lbl">Handler til evaluering</div></div>
     </div>
   </div>
 
   <!-- GRAFER -->
-  <div id="grafer" style="margin-top:24px">
-    <div class="section-title">📊 Grafer</div>
-    <div class="section-sub">Visuell oversikt over agentens aktivitet</div>
-    <div class="chart-grid">
-      <div class="chart-card"><div class="chart-title">P&L per dag</div><canvas id="pnlChart" height="200"></canvas></div>
-      <div class="chart-card"><div class="chart-title">Handler per strategi</div><canvas id="stratChart" height="200"></canvas></div>
-      <div class="chart-card"><div class="chart-title">Mest handlede symboler</div><canvas id="symChart" height="200"></canvas></div>
-      <div class="chart-card"><div class="chart-title">Vinnere vs Tapere</div><canvas id="vtChart" height="200"></canvas></div>
-    </div>
+  <div class="chart-grid">
+    <div class="chart-card"><div class="chart-title">P&L per handel (R-multiples)</div><canvas id="rChart" height="200"></canvas></div>
+    <div class="chart-card"><div class="chart-title">Handler per oppsett</div><canvas id="setupChart" height="200"></canvas></div>
+    <div class="chart-card"><div class="chart-title">Kumulativ P&L ($)</div><canvas id="cumChart" height="200"></canvas></div>
+    <div class="chart-card"><div class="chart-title">Vinnere vs Tapere</div><canvas id="vtChart" height="200"></canvas></div>
   </div>
 
   <!-- HANDELSLOGG -->
-  <div id="logg" style="margin-top:24px">
-    <div class="section-title">📝 Detaljert handelslogg</div>
-    <div class="section-sub">Alle beslutninger Claude tok — siste 50 handler</div>
+  <div id="logg">
+    <div class="sec-title">📝 Handelslogg</div>
+    <div class="sec-sub">Alle handler med signal score, R-multiple og begrunnelse</div>
     <div class="card">
       <div class="table-wrap">
         <table>
-          <tr><th>Dato</th><th>Symbol</th><th>Type</th><th>Strategi</th><th>Inngang</th><th>Utgang</th><th>Antall</th><th>P&L</th><th>Dager</th><th>Konfidens</th><th>Begrunnelse</th></tr>
+          <tr><th>Dato</th><th>Symbol</th><th>Oppsett</th><th>Score</th><th>Inngang</th><th>Stop</th><th>Mål</th><th>Utgang</th><th>R</th><th>P&L</th><th>AI-notat</th></tr>
           <tbody id="log-body">
-            <tr><td colspan="11" class="empty-msg">Ingen handler ennå — agenten analyserer daglig kl. 09:15 NZ-tid</td></tr>
+            <tr><td colspan="11" class="empty-msg">Ingen handler ennå — agenten kjøres kl. 21:15 UTC daglig</td></tr>
           </tbody>
         </table>
       </div>
@@ -212,18 +192,16 @@ tr:hover td{background:#F8FAFC}
 
 </div>
 
-<div class="updated" id="updated-time">Venter på første handelsdag...</div>
+<div class="updated" id="updated-time">Venter på første fullførte handel...</div>
 <div class="disclaimer">
-  Eksperimentell AI-trading agent · All handel på simulert papirkonto · Ikke finansiell rådgivning<br>
-  Server: DigitalOcean NYC ($6/mnd) · Claude API (~$20/mnd) · Total: ~$26/mnd<br>
-  Backtest CAGR +20.6%/år er historiske data — garanterer ikke fremtidig avkastning
+  AI Swing Trading System v3 · Simulert papirkonto · Ikke finansiell rådgivning<br>
+  100+ handler kreves før strategien kan evalueres statistisk
 </div>
 </div>
 
 <script>
 const CORRECT = "1235";
-let pin = "";
-let charts = {};
+let pin = "", charts = {};
 
 function enter(n) {
   if (pin.length >= 4) return;
@@ -232,10 +210,9 @@ function enter(n) {
   if (pin.length === 4) setTimeout(submit_pin, 200);
 }
 function clear_pin() {
-  if (pin.length > 0) {
-    pin = pin.slice(0,-1);
-    for (let i = 0; i < 4; i++) document.getElementById("d"+i).classList.toggle("filled", i < pin.length);
-  }
+  if (!pin.length) return;
+  pin = pin.slice(0,-1);
+  for (let i = 0; i < 4; i++) document.getElementById("d"+i).classList.toggle("filled", i < pin.length);
 }
 function submit_pin() {
   if (pin === CORRECT) {
@@ -244,10 +221,10 @@ function submit_pin() {
     sessionStorage.setItem("unlocked","1");
     loadData();
   } else {
-    document.getElementById("lock-error").textContent = "Feil PIN-kode — prøv igjen";
+    document.getElementById("lock-error").textContent = "Feil PIN — prøv igjen";
     pin = "";
     for (let i = 0; i < 4; i++) document.getElementById("d"+i).classList.remove("filled");
-    setTimeout(()=>document.getElementById("lock-error").textContent="", 2000);
+    setTimeout(() => document.getElementById("lock-error").textContent = "", 2000);
   }
 }
 function lock() {
@@ -258,184 +235,164 @@ function lock() {
   document.getElementById("main").style.display = "none";
 }
 
+function fmt(n, dec=2) { return n === null || n === undefined ? "–" : Number(n).toFixed(dec); }
+function fmtUSD(n) { if (!n && n!==0) return "–"; return (n>=0?"+$":"-$")+Math.abs(n).toFixed(2); }
+function setupBadge(s) {
+  const map = {"momentum_trend":"b-m","pullback_to_sma":"b-r","relative_strength_breakout":"b-m","rsi2_oversold":"b-r","earnings_drift":"b-e"};
+  return `<span class="badge ${map[s]||'b-m'}">${s||"–"}</span>`;
+}
+
 function loadData() {
-  fetch("data.json").then(r=>r.json()).then(data=>{
-    renderAll(data);
-    if (data.updated) document.getElementById("updated-time").textContent = "Sist oppdatert: " + data.updated + " NZ-tid";
-  }).catch(()=>{
-    renderCharts({trades:[], dag_pnl:{}, strat_count:{}, sym_count:{}, vinnere:0, tapere:0});
-  });
+  fetch("data.json").then(r=>r.json()).then(render).catch(() => renderCharts({}));
 }
 
-function stratBadge(s) {
-  if (s === "Momentum") return `<span class="badge b-momentum">Momentum</span>`;
-  if (s === "RSI2_MeanRev") return `<span class="badge b-rsi2">RSI(2)</span>`;
-  if (s === "Catalyst") return `<span class="badge b-catalyst">Catalyst</span>`;
-  return `<span class="badge" style="background:#F1F5F9;color:#374151">${s}</span>`;
-}
+function render(data) {
+  const trades  = data.trades || [];
+  const closed  = trades.filter(t => t.status === "closed" && t.outcome_r !== null);
+  const open    = data.posisjoner || [];
+  const saldo   = data.saldo || 5000;
+  const tot_pnl = closed.reduce((a,t) => a + (t.pnl_usd||0), 0);
 
-function renderAll(data) {
-  const trades = data.trades || [];
-  const posisjoner = data.posisjoner || [];
-  const v = trades.filter(t=>t.vinner);
-  const t = trades.filter(t=>!t.vinner);
-  const wr = trades.length > 0 ? Math.round(v.length/trades.length*100) : 0;
-  const tot_pnl = trades.reduce((a,t)=>a+t.pnl,0);
-  const saldo = data.saldo || 5000;
-
-  // Hero stats
+  // Hero
   document.getElementById("s-saldo").textContent = "$" + saldo.toLocaleString("no",{minimumFractionDigits:0,maximumFractionDigits:0});
   const pnlEl = document.getElementById("s-pnl");
-  pnlEl.textContent = (tot_pnl >= 0 ? "+$" : "-$") + Math.abs(tot_pnl).toLocaleString("no",{minimumFractionDigits:2,maximumFractionDigits:2});
+  pnlEl.textContent = (tot_pnl >= 0 ? "+$" : "-$") + Math.abs(tot_pnl).toFixed(2);
   pnlEl.style.color = tot_pnl >= 0 ? "#F4C430" : "#FCA5A5";
-  document.getElementById("s-total").textContent = trades.length;
-  document.getElementById("s-wr").textContent = wr + "%";
-  document.getElementById("s-pos").textContent = posisjoner.length;
-  const dager = Object.keys(data.dag_pnl || {}).length;
-  document.getElementById("s-dager").textContent = dager;
+  document.getElementById("s-handler").textContent = closed.length;
+
+  // Stats
+  if (closed.length >= 3) {
+    const wins   = closed.filter(t => t.outcome_r > 0);
+    const losses = closed.filter(t => t.outcome_r <= 0);
+    const wr     = wins.length / closed.length;
+    const avgW   = wins.length   ? wins.reduce((a,t)=>a+t.outcome_r,0)/wins.length : 0;
+    const avgL   = losses.length ? losses.reduce((a,t)=>a+t.outcome_r,0)/losses.length : 0;
+    const exp    = (wr * avgW) + ((1-wr) * avgL);
+    const gp     = wins.reduce((a,t)=>a+(t.pnl_usd||0),0);
+    const gl     = Math.abs(losses.reduce((a,t)=>a+(t.pnl_usd||0),0)) || 1;
+    const pf     = gp/gl;
+
+    document.getElementById("s-exp").textContent   = fmt(exp,3)+"R";
+    document.getElementById("s-wr").textContent     = Math.round(wr*100)+"%";
+    document.getElementById("kpi-handler").textContent = closed.length;
+    document.getElementById("kpi-wr").textContent   = Math.round(wr*100)+"%";
+    document.getElementById("kpi-avgwin").textContent = "+"+fmt(avgW)+"R";
+    document.getElementById("kpi-avgloss").textContent= fmt(avgL)+"R";
+    document.getElementById("kpi-exp").textContent  = fmt(exp,3)+"R";
+    document.getElementById("kpi-pf").textContent   = fmt(pf,2);
+    document.getElementById("kpi-pnl").textContent  = fmtUSD(tot_pnl);
+    document.getElementById("kpi-target").textContent = Math.max(0, 100-closed.length);
+
+    const expBox  = document.getElementById("exp-box");
+    const expText = document.getElementById("exp-text");
+    if (exp > 0.1) {
+      expBox.className = "expectancy-box exp-positive";
+      expText.textContent = `Expectancy: +${fmt(exp,3)}R per handel. Positiv edge detektert! Fortsett å samle data — ${Math.max(0,100-closed.length)} handler gjenstår til strategievaluering.`;
+    } else if (exp > 0) {
+      expBox.className = "expectancy-box exp-neutral";
+      expText.textContent = `Expectancy: +${fmt(exp,3)}R per handel. Marginalt positiv — fortsett å samle data (${closed.length}/100 handler).`;
+    } else {
+      expBox.className = "expectancy-box exp-negative";
+      expText.textContent = `Expectancy: ${fmt(exp,3)}R per handel. Negativ edge — ikke juster ennå, fortsett å samle data (${closed.length}/100 handler).`;
+    }
+  }
 
   // Åpne posisjoner
   const posList = document.getElementById("pos-list");
-  if (posisjoner.length > 0) {
-    posList.innerHTML = posisjoner.map(p => {
-      const pnlC = p.pnl >= 0 ? "#16A34A" : "#DC2626";
-      const stopDist = ((p.nåværende - p.stop) / p.nåværende * 100).toFixed(1);
+  if (open.length) {
+    posList.innerHTML = open.map(p => {
+      const pc = p.pnl >= 0 ? "#16A34A" : "#DC2626";
       return `<div class="pos-card">
-        <div>
-          <div class="pos-sym">${p.symbol}</div>
-          <div class="pos-strat">${stratBadge(p.strategi)} · Kjøpt ${p.dato_inn || ""} · ${p.dager || 0} dager holdt</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-size:12px;color:#64748B">Inngang → Nå</div>
-          <div style="font-size:13px;font-weight:600">$${p.inngang} → $${p.nåværende}</div>
-        </div>
+        <div><div class="pos-sym">${p.symbol}</div><div class="pos-meta">${p.strategi||""} · Score ${p.score||"–"}</div></div>
+        <div style="text-align:center"><div style="font-size:11px;color:#64748B">Inngang → Nå</div><div style="font-size:12px;font-weight:600">$${p.inngang} → $${p.nåværende}</div></div>
         <div style="text-align:right">
-          <div class="pos-pnl" style="color:${pnlC}">${p.pnl >= 0 ? "+" : ""}$${Math.abs(p.pnl).toFixed(2)}</div>
-          <div class="pos-meta">Stop: $${p.stop} (${stopDist}% unna)</div>
-          <div class="pos-meta">Mål: $${p.target}</div>
+          <div class="pos-pnl" style="color:${pc}">${p.pnl>=0?"+":""}$${Math.abs(p.pnl||0).toFixed(2)}</div>
+          <div class="pos-meta">Stop: $${p.stop||"–"} · Mål: $${p.target||"–"}</div>
         </div>
       </div>`;
     }).join("");
-  } else {
-    posList.innerHTML = `<div class="empty-msg">Ingen åpne posisjoner — agenten søker etter signaler kl. 09:15 daglig</div>`;
-  }
-
-  // Strategi bars
-  const stratData = data.strat_count || {};
-  const stratPnl = data.strat_pnl || {};
-  const stratEl = document.getElementById("strat-bars");
-  if (Object.keys(stratData).length > 0) {
-    const maxPnl = Math.max(...Object.values(stratPnl).map(Math.abs), 1);
-    const colors = {"Momentum":"#185FA5","RSI2_MeanRev":"#085041","Catalyst":"#B45309"};
-    stratEl.innerHTML = ["Momentum","RSI2_MeanRev","Catalyst"].filter(s=>stratData[s]).map(s => {
-      const cnt = stratData[s] || 0;
-      const pnl = stratPnl[s] || 0;
-      const pct = Math.abs(pnl)/maxPnl*100;
-      const c = colors[s] || "#374151";
-      const label = s === "RSI2_MeanRev" ? "RSI(2) Mean Rev." : s;
-      return `<div class="strat-bar">
-        <div class="strat-name">${label}</div>
-        <div class="strat-track"><div class="strat-fill" style="width:${pct}%;background:${c}"></div></div>
-        <div class="strat-stat">${cnt} handler · ${pnl >= 0 ? "+" : ""}$${pnl.toFixed(0)}</div>
-      </div>`;
-    }).join("");
-  }
-
-  // Summary
-  if (trades.length > 0) {
-    const avgV = v.length > 0 ? v.reduce((a,t)=>a+t.pnl,0)/v.length : 0;
-    const avgT = t.length > 0 ? t.reduce((a,t)=>a+t.pnl,0)/t.length : 0;
-    const best = trades.reduce((a,b)=>b.pnl>a.pnl?b:a);
-    const avgD = trades.reduce((a,t)=>a+(t.dager||0),0)/trades.length;
-    document.getElementById("sm-handler").textContent = trades.length;
-    document.getElementById("sm-vinnere").textContent = v.length;
-    document.getElementById("sm-tapere").textContent = t.length;
-    document.getElementById("sm-wr").textContent = wr + "%";
-    document.getElementById("sm-avgv").textContent = "+$" + avgV.toFixed(2);
-    document.getElementById("sm-avgt").textContent = "$" + avgT.toFixed(2);
-    document.getElementById("sm-best").textContent = best.symbol + " +$" + best.pnl.toFixed(0);
-    document.getElementById("sm-avgd").textContent = avgD.toFixed(1) + "d";
   }
 
   // Handelslogg
   const logBody = document.getElementById("log-body");
-  if (trades.length > 0) {
+  if (trades.length) {
     logBody.innerHTML = [...trades].reverse().slice(0,50).map(t => {
-      const pc = t.action === "BUY" ? "#16A34A" : "#DC2626";
-      const pnlC = t.pnl >= 0 ? "#16A34A" : "#DC2626";
-      const kbg = t.konfidens >= 75 ? "#E1F5EE" : t.konfidens >= 65 ? "#FAEEDA" : "#FCEBEB";
-      const ktx = t.konfidens >= 75 ? "#085041" : t.konfidens >= 65 ? "#633806" : "#501313";
+      const rc = (t.outcome_r||0) > 0 ? "r-win" : "r-loss";
+      const pc = (t.pnl_usd||0) > 0 ? "#16A34A" : "#DC2626";
+      const statusIcon = t.status === "open" ? "⏳" : t.outcome_r > 0 ? "✓" : "✗";
       return `<tr>
-        <td>${t.dato||""}</td>
+        <td>${t.date||""}</td>
         <td><strong>${t.symbol||""}</strong></td>
-        <td style="color:${pc};font-weight:600">${t.action||""}</td>
-        <td>${stratBadge(t.strategi||"")}</td>
-        <td>$${(t.inngang||0).toFixed(2)}</td>
-        <td>$${(t.utgang||0).toFixed(2)}</td>
-        <td>${(t.antall||0).toFixed(4)}</td>
-        <td style="color:${pnlC};font-weight:600">${t.pnl>=0?"+":""}$${Math.abs(t.pnl||0).toFixed(2)}</td>
-        <td>${t.dager||0}d</td>
-        <td><span class="konf" style="background:${kbg};color:${ktx}">${t.konfidens||0}%</span></td>
-        <td class="grunn">${(t.grunn||"").substring(0,50)}</td>
+        <td>${setupBadge(t.setup)}</td>
+        <td>${t.signal_score||"–"}</td>
+        <td>$${t.entry_price||"–"}</td>
+        <td>$${t.stop_price||"–"}</td>
+        <td>$${t.target_price||"–"}</td>
+        <td>${t.exit_price ? "$"+t.exit_price : statusIcon}</td>
+        <td class="${rc}">${t.outcome_r !== null ? (t.outcome_r>0?"+":"")+fmt(t.outcome_r)+"R" : "–"}</td>
+        <td style="color:${pc};font-weight:600">${t.pnl_usd !== null ? fmtUSD(t.pnl_usd) : "–"}</td>
+        <td style="font-size:10px;color:#64748B;max-width:180px">${(t.ai_summary||"").substring(0,60)}</td>
       </tr>`;
     }).join("");
   }
 
-  renderCharts(data);
+  renderCharts(data, closed);
+  if (data.updated) document.getElementById("updated-time").textContent = "Sist oppdatert: "+data.updated+" UTC";
 }
 
-function renderCharts(data) {
-  const pal = ["#1E2761","#3B82F6","#10B981","#F59E0B","#EF4444","#8B5CF6","#EC4899","#14B8A6"];
-  const dagPnl = data.dag_pnl || {};
-  const sc = data.strat_count || {};
-  const symc = data.sym_count || {};
-  const trades = data.trades || [];
-  const v = trades.filter(t=>t.vinner).length;
-  const t2 = trades.filter(t=>!t.vinner).length;
-
-  const dagLabels = Object.keys(dagPnl).slice(-20);
-  const dagValues = dagLabels.map(d=>dagPnl[d]||0);
-
-  if (charts.pnl) charts.pnl.destroy();
-  if (charts.strat) charts.strat.destroy();
-  if (charts.sym) charts.sym.destroy();
+function renderCharts(data, closed=[]) {
+  const pal = ["#1E2761","#10B981","#F59E0B","#EF4444","#8B5CF6"];
+  if (charts.r) charts.r.destroy();
+  if (charts.setup) charts.setup.destroy();
+  if (charts.cum) charts.cum.destroy();
   if (charts.vt) charts.vt.destroy();
 
-  charts.pnl = new Chart(document.getElementById("pnlChart"),{
+  // R-multiples bar
+  const rData   = closed.slice(-20).map(t => t.outcome_r||0);
+  const rLabels = closed.slice(-20).map(t => t.symbol||"");
+  charts.r = new Chart(document.getElementById("rChart"),{
     type:"bar",
-    data:{labels:dagLabels,datasets:[{
-      label:"P&L",
-      data:dagValues,
-      backgroundColor:dagValues.map(v=>v>=0?"rgba(22,163,74,0.7)":"rgba(220,38,38,0.7)"),
-      borderRadius:4
-    }]},
-    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:false}}}
+    data:{labels:rLabels,datasets:[{label:"R",data:rData,
+      backgroundColor:rData.map(v=>v>=0?"rgba(22,163,74,.7)":"rgba(220,38,38,.7)"),borderRadius:4}]},
+    options:{responsive:true,plugins:{legend:{display:false}},
+      scales:{y:{beginAtZero:false,title:{display:true,text:"R-multiple",font:{size:10}}}}}
   });
 
-  const stratLabels = Object.keys(sc).map(s=>s==="RSI2_MeanRev"?"RSI(2)":s);
-  charts.strat = new Chart(document.getElementById("stratChart"),{
+  // Setup donut
+  const sc = data.strat_count || {};
+  const setupLabels = Object.keys(sc).map(s=>s.replace("_"," ").replace("momentum trend","momentum").replace("rsi2 oversold","rsi2").replace("earnings drift","earnings"));
+  charts.setup = new Chart(document.getElementById("setupChart"),{
     type:"doughnut",
-    data:{labels:stratLabels,datasets:[{data:Object.values(sc),backgroundColor:["#1E2761","#10B981","#F59E0B"]}]},
-    options:{responsive:true,plugins:{legend:{position:"bottom",labels:{font:{size:11}}}}}
+    data:{labels:setupLabels,datasets:[{data:Object.values(sc),backgroundColor:pal}]},
+    options:{responsive:true,plugins:{legend:{position:"bottom",labels:{font:{size:10}}}}}
   });
 
-  const symEntries = Object.entries(symc).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  charts.sym = new Chart(document.getElementById("symChart"),{
-    type:"bar",
-    data:{labels:symEntries.map(e=>e[0]),datasets:[{label:"Handler",data:symEntries.map(e=>e[1]),backgroundColor:"#1E2761",borderRadius:4}]},
-    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}
+  // Cumulative P&L
+  let cum = 0;
+  const cumData   = closed.map(t => { cum += (t.pnl_usd||0); return Math.round(cum*100)/100; });
+  const cumLabels = closed.map((_,i) => ""+（i+1));
+  charts.cum = new Chart(document.getElementById("cumChart"),{
+    type:"line",
+    data:{labels:cumLabels,datasets:[{label:"P&L",data:cumData,
+      borderColor:"#1E2761",backgroundColor:"rgba(30,39,97,.08)",
+      tension:.3,pointRadius:2,fill:true}]},
+    options:{responsive:true,plugins:{legend:{display:false}},
+      scales:{y:{title:{display:true,text:"USD",font:{size:10}}}}}
   });
 
+  // Win/Loss pie
+  const wins = closed.filter(t=>t.outcome_r>0).length;
+  const loss = closed.filter(t=>t.outcome_r<=0).length;
   charts.vt = new Chart(document.getElementById("vtChart"),{
     type:"pie",
-    data:{labels:["Vinnere","Tapere"],datasets:[{data:[v,t2],backgroundColor:["#10B981","#EF4444"]}]},
+    data:{labels:["Vinnere","Tapere"],datasets:[{data:[wins,loss],backgroundColor:["#10B981","#EF4444"]}]},
     options:{responsive:true,plugins:{legend:{position:"bottom"}}}
   });
 }
 
 if (sessionStorage.getItem("unlocked")==="1") {
-  document.getElementById("lock").style.display = "none";
-  document.getElementById("main").style.display = "block";
+  document.getElementById("lock").style.display="none";
+  document.getElementById("main").style.display="block";
   loadData();
 }
 </script>
