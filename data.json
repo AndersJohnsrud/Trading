@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-30 21:30",
-  "saldo": 4960.85,
+  "updated": "2026-05-03 21:30",
+  "saldo": 4994.17,
   "trades": [
     {
       "id": 1,
@@ -85,42 +85,63 @@
       "exit_reason": null,
       "outcome_r": null,
       "pnl_usd": null
+    },
+    {
+      "id": 5,
+      "date": "2026-05-03",
+      "symbol": "CAT",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 890.56,
+      "stop_price": 836.49,
+      "target_price": 969.44,
+      "position_size": 0.4696,
+      "risk_usd": 24.97,
+      "rr_ratio": 1.5,
+      "ai_summary": "CAT shows full MA alignment and exceptional relative strength vs SPY (+6.15% 5d, +14.4% 20d), but RSI(2) at 99.5 signals extreme near-term exhaustion, warranting caution and a reduced conviction rating despite an otherwise strong momentum-trend setup.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     }
   ],
   "posisjoner": [
     {
       "symbol": "AAPL",
       "inngang": 274.93,
-      "nåværende": 268.57,
-      "pnl": -29.11,
-      "pnl_pct": -2.31
+      "nåværende": 280.14,
+      "pnl": 23.83,
+      "pnl_pct": 1.89
     },
     {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 213.79,
-      "pnl": 6.36,
-      "pnl_pct": 0.53
+      "nåværende": 212.5,
+      "pnl": -0.97,
+      "pnl_pct": -0.08
     },
     {
       "symbol": "NVDA",
       "inngang": 208.66,
-      "nåværende": 199.85,
-      "pnl": -41.61,
-      "pnl_pct": -4.22
+      "nåværende": 198.45,
+      "pnl": -48.22,
+      "pnl_pct": -4.9
     },
     {
       "symbol": "WMT",
       "inngang": 129.27,
-      "nåværende": 132.28,
-      "pnl": 25.2,
-      "pnl_pct": 2.33
+      "nåværende": 131.6,
+      "pnl": 19.52,
+      "pnl_pct": 1.8
     }
   ],
   "strat_count": {},
   "statistikk": {},
   "totalt": {
-    "handler": 4,
+    "handler": 5,
     "lukket": 0,
     "winrate": 0,
     "expectancy": 0,
