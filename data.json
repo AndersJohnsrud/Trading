@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-26 21:30",
-  "saldo": 5207.7,
+  "updated": "2026-05-27 21:30",
+  "saldo": 5213.42,
   "trades": [
     {
       "id": 1,
@@ -112,37 +112,37 @@
     {
       "symbol": "AAPL",
       "inngang": 274.93,
-      "nåværende": 308.46,
-      "pnl": 153.42,
-      "pnl_pct": 12.2
+      "nåværende": 311.0,
+      "pnl": 165.05,
+      "pnl_pct": 13.12
     },
     {
       "symbol": "CAT",
       "inngang": 888.12,
-      "nåværende": 909.91,
-      "pnl": 10.23,
-      "pnl_pct": 2.45
+      "nåværende": 912.0,
+      "pnl": 11.21,
+      "pnl_pct": 2.69
     },
     {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 231.39,
-      "pnl": 106.38,
-      "pnl_pct": 8.8
+      "nåværende": 231.47,
+      "pnl": 106.83,
+      "pnl_pct": 8.84
     },
     {
       "symbol": "NVDA",
       "inngang": 208.66,
-      "nåværende": 214.45,
-      "pnl": 27.31,
-      "pnl_pct": 2.77
+      "nåværende": 212.47,
+      "pnl": 17.96,
+      "pnl_pct": 1.82
     },
     {
       "symbol": "WMT",
       "inngang": 129.27,
-      "nåværende": 118.57,
-      "pnl": -89.65,
-      "pnl_pct": -8.28
+      "nåværende": 118.81,
+      "pnl": -87.64,
+      "pnl_pct": -8.09
     }
   ],
   "strat_count": {},
