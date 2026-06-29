@@ -1,6 +1,6 @@
 {
-  "updated": "2026-06-28 21:30",
-  "saldo": 5012.93,
+  "updated": "2026-06-29 21:30",
+  "saldo": 5010.68,
   "trades": [
     {
       "id": 1,
@@ -106,47 +106,103 @@
       "exit_reason": "spy_trend",
       "outcome_r": 1.98,
       "pnl_usd": 50.2
+    },
+    {
+      "id": 6,
+      "date": "2026-06-29",
+      "symbol": "CAT",
+      "setup": "momentum_trend",
+      "signal_score": 82,
+      "conviction": "HIGH",
+      "spy_filter": "positive",
+      "entry_price": 1034.22,
+      "stop_price": 944.97,
+      "target_price": 1165.52,
+      "position_size": 0.5677,
+      "risk_usd": 50.08,
+      "rr_ratio": 1.5,
+      "ai_summary": "CAT shows full MA alignment with strong 20-day relative strength of +20% vs SPY and ATR% within tradeable range, confirming a valid momentum_trend setup, though low RVOL of 0.69 and a slightly fading MACD histogram warrant monitoring for entry timing.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
+    },
+    {
+      "id": 7,
+      "date": "2026-06-29",
+      "symbol": "BAC",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 57.94,
+      "stop_price": 55.53,
+      "target_price": 61.4,
+      "position_size": 10.6559,
+      "risk_usd": 25.04,
+      "rr_ratio": 1.5,
+      "ai_summary": "BAC shows full MA alignment, strong 20-day relative strength of +14.81% vs SPY, and a valid momentum trend setup, but RSI(14) at 81.2 triggers an extreme overbought penalty and RVOL at 0.75 fails the volume confirmation threshold, capping conviction at MEDIUM.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
+    },
+    {
+      "id": 8,
+      "date": "2026-06-29",
+      "symbol": "GE",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 374.08,
+      "stop_price": 351.88,
+      "target_price": 406.46,
+      "position_size": 1.1471,
+      "risk_usd": 25.04,
+      "rr_ratio": 1.5,
+      "ai_summary": "GE shows full MA alignment, strong relative strength vs SPY (+5.69% / +17.49%), and clean momentum trend, but RSI14 at 80.4 triggers the extreme RSI penalty and RVOL at 0.58 fails the RVOL bonus threshold, keeping conviction at MEDIUM and warranting caution on extended entry.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
+    },
+    {
+      "id": 9,
+      "date": "2026-06-29",
+      "symbol": "RTX",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 187.52,
+      "stop_price": 177.38,
+      "target_price": 202.26,
+      "position_size": 2.5167,
+      "risk_usd": 25.04,
+      "rr_ratio": 1.5,
+      "ai_summary": "RTX shows strong momentum and excellent relative strength vs SPY (+3.48% 5d, +6.33% 20d) with full MA stack above price, but SMA alignment is incomplete (sma200 > sma50 breaks the full bull sequence) and today's RVOL of 0.43 is well below the liquidity threshold for the bonus point, keeping conviction at MEDIUM.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     }
   ],
   "posisjoner": [
     {
-      "symbol": "AAPL",
-      "inngang": 274.93,
-      "nåværende": 283.78,
-      "pnl": 40.49,
-      "pnl_pct": 3.22
-    },
-    {
-      "symbol": "CAT",
-      "inngang": 888.12,
-      "nåværende": 997.47,
-      "pnl": 51.35,
-      "pnl_pct": 12.31
-    },
-    {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 232.21,
-      "pnl": 111.04,
-      "pnl_pct": 9.19
-    },
-    {
-      "symbol": "NVDA",
-      "inngang": 208.66,
-      "nåværende": 192.53,
-      "pnl": -76.17,
-      "pnl_pct": -7.73
-    },
-    {
-      "symbol": "WMT",
-      "inngang": 129.27,
-      "nåværende": 115.69,
-      "pnl": -113.78,
-      "pnl_pct": -10.51
+      "nåværende": 228.92,
+      "pnl": 92.34,
+      "pnl_pct": 7.64
     }
   ],
   "strat_count": {
-    "momentum_trend": 5
+    "momentum_trend": 9
   },
   "statistikk": {
     "completed": 3,
@@ -157,11 +213,11 @@
     "profit_factor": 0.51,
     "total_pnl": -47.61,
     "strat_count": {
-      "momentum_trend": 5
+      "momentum_trend": 9
     }
   },
   "totalt": {
-    "handler": 5,
+    "handler": 9,
     "lukket": 3,
     "winrate": 33.3,
     "expectancy": -0.62,
