@@ -1,6 +1,6 @@
 {
-  "updated": "2026-06-29 21:30",
-  "saldo": 5010.68,
+  "updated": "2026-06-30 21:30",
+  "saldo": 4971.43,
   "trades": [
     {
       "id": 1,
@@ -190,19 +190,61 @@
       "exit_reason": null,
       "outcome_r": null,
       "pnl_usd": null
+    },
+    {
+      "id": 10,
+      "date": "2026-06-30",
+      "symbol": "CAT",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 1065.96,
+      "stop_price": 979.67,
+      "target_price": 1192.75,
+      "position_size": 0.2916,
+      "risk_usd": 24.86,
+      "rr_ratio": 1.5,
+      "ai_summary": "CAT shows full MA alignment and exceptional 20-day relative strength (+24.36% vs SPY), qualifying as a momentum_trend setup, but RSI(2) at 100 signals extreme short-term overbought conditions and below-average RVOL (0.82) reduces conviction, warranting a MEDIUM rating and caution on immediate entry.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     }
   ],
   "posisjoner": [
     {
+      "symbol": "BAC",
+      "inngang": 57.55,
+      "nåværende": 57.01,
+      "pnl": -5.75,
+      "pnl_pct": -0.94
+    },
+    {
+      "symbol": "GE",
+      "inngang": 372.48,
+      "nåværende": 372.9,
+      "pnl": 0.48,
+      "pnl_pct": 0.11
+    },
+    {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 228.92,
-      "pnl": 92.34,
-      "pnl_pct": 7.64
+      "nåværende": 222.0,
+      "pnl": 53.02,
+      "pnl_pct": 4.39
+    },
+    {
+      "symbol": "RTX",
+      "inngang": 187.6,
+      "nåværende": 189.73,
+      "pnl": 5.36,
+      "pnl_pct": 1.14
     }
   ],
   "strat_count": {
-    "momentum_trend": 9
+    "momentum_trend": 10
   },
   "statistikk": {
     "completed": 3,
@@ -213,11 +255,11 @@
     "profit_factor": 0.51,
     "total_pnl": -47.61,
     "strat_count": {
-      "momentum_trend": 9
+      "momentum_trend": 10
     }
   },
   "totalt": {
-    "handler": 9,
+    "handler": 10,
     "lukket": 3,
     "winrate": 33.3,
     "expectancy": -0.62,
