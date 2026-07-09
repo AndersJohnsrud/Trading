@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-08 21:30",
-  "saldo": 4946.17,
+  "updated": "2026-07-09 21:30",
+  "saldo": 4975.19,
   "trades": [
     {
       "id": 1,
@@ -217,37 +217,37 @@
     {
       "symbol": "BAC",
       "inngang": 57.55,
-      "nåværende": 58.34,
-      "pnl": 8.46,
-      "pnl_pct": 1.38
+      "nåværende": 59.21,
+      "pnl": 17.69,
+      "pnl_pct": 2.88
     },
     {
       "symbol": "CAT",
       "inngang": 1031.94,
-      "nåværende": 948.99,
-      "pnl": -24.19,
-      "pnl_pct": -8.04
+      "nåværende": 938.45,
+      "pnl": -27.26,
+      "pnl_pct": -9.06
     },
     {
       "symbol": "GE",
       "inngang": 372.48,
-      "nåværende": 355.04,
-      "pnl": -20.01,
-      "pnl_pct": -4.68
+      "nåværende": 359.6,
+      "pnl": -14.77,
+      "pnl_pct": -3.46
     },
     {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 221.03,
-      "pnl": 47.5,
-      "pnl_pct": 3.93
+      "nåværende": 223.4,
+      "pnl": 60.97,
+      "pnl_pct": 5.04
     },
     {
       "symbol": "RTX",
       "inngang": 187.6,
-      "nåværende": 194.0,
-      "pnl": 16.11,
-      "pnl_pct": 3.41
+      "nåværende": 195.65,
+      "pnl": 20.26,
+      "pnl_pct": 4.29
     }
   ],
   "strat_count": {
