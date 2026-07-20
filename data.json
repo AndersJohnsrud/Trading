@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-19 21:30",
-  "saldo": 4971.64,
+  "updated": "2026-07-20 21:30",
+  "saldo": 4958.64,
   "trades": [
     {
       "id": 1,
@@ -143,11 +143,11 @@
       "risk_usd": 25.04,
       "rr_ratio": 1.5,
       "ai_summary": "BAC shows full MA alignment, strong 20-day relative strength of +14.81% vs SPY, and a valid momentum trend setup, but RSI(14) at 81.2 triggers an extreme overbought penalty and RVOL at 0.75 fails the volume confirmation threshold, capping conviction at MEDIUM.",
-      "status": "open",
-      "exit_price": null,
-      "exit_reason": null,
-      "outcome_r": null,
-      "pnl_usd": null
+      "status": "closed",
+      "exit_price": 60.44,
+      "exit_reason": "spy_trend",
+      "outcome_r": 1.04,
+      "pnl_usd": 26.64
     },
     {
       "id": 8,
@@ -164,11 +164,11 @@
       "risk_usd": 25.04,
       "rr_ratio": 1.5,
       "ai_summary": "GE shows full MA alignment, strong relative strength vs SPY (+5.69% / +17.49%), and clean momentum trend, but RSI14 at 80.4 triggers the extreme RSI penalty and RVOL at 0.58 fails the RVOL bonus threshold, keeping conviction at MEDIUM and warranting caution on extended entry.",
-      "status": "open",
-      "exit_price": null,
-      "exit_reason": null,
-      "outcome_r": null,
-      "pnl_usd": null
+      "status": "closed",
+      "exit_price": 341.92,
+      "exit_reason": "spy_trend",
+      "outcome_r": -1.45,
+      "pnl_usd": -36.89
     },
     {
       "id": 9,
@@ -185,11 +185,11 @@
       "risk_usd": 25.04,
       "rr_ratio": 1.5,
       "ai_summary": "RTX shows strong momentum and excellent relative strength vs SPY (+3.48% 5d, +6.33% 20d) with full MA stack above price, but SMA alignment is incomplete (sma200 > sma50 breaks the full bull sequence) and today's RVOL of 0.43 is well below the liquidity threshold for the bonus point, keeping conviction at MEDIUM.",
-      "status": "open",
-      "exit_price": null,
-      "exit_reason": null,
-      "outcome_r": null,
-      "pnl_usd": null
+      "status": "closed",
+      "exit_price": 194.56,
+      "exit_reason": "spy_trend",
+      "outcome_r": 0.69,
+      "pnl_usd": 17.71
     },
     {
       "id": 10,
@@ -206,70 +206,70 @@
       "risk_usd": 24.86,
       "rr_ratio": 1.5,
       "ai_summary": "CAT shows full MA alignment and exceptional 20-day relative strength (+24.36% vs SPY), qualifying as a momentum_trend setup, but RSI(2) at 100 signals extreme short-term overbought conditions and below-average RVOL (0.82) reduces conviction, warranting a MEDIUM rating and caution on immediate entry.",
-      "status": "open",
-      "exit_price": null,
-      "exit_reason": null,
-      "outcome_r": null,
-      "pnl_usd": null
+      "status": "closed",
+      "exit_price": 865.0,
+      "exit_reason": "spy_trend",
+      "outcome_r": -2.33,
+      "pnl_usd": -58.6
     }
   ],
   "posisjoner": [
     {
       "symbol": "BAC",
       "inngang": 57.55,
-      "nåværende": 61.27,
-      "pnl": 39.64,
-      "pnl_pct": 6.46
+      "nåværende": 60.44,
+      "pnl": 30.79,
+      "pnl_pct": 5.02
     },
     {
       "symbol": "CAT",
       "inngang": 1031.94,
-      "nåværende": 880.28,
-      "pnl": -44.22,
-      "pnl_pct": -14.7
+      "nåværende": 865.0,
+      "pnl": -48.68,
+      "pnl_pct": -16.18
     },
     {
       "symbol": "GE",
       "inngang": 372.48,
-      "nåværende": 348.83,
-      "pnl": -27.13,
-      "pnl_pct": -6.35
+      "nåværende": 341.84,
+      "pnl": -35.15,
+      "pnl_pct": -8.23
     },
     {
       "symbol": "HON",
       "inngang": 212.67,
-      "nåværende": 225.02,
-      "pnl": 70.18,
-      "pnl_pct": 5.81
+      "nåværende": 226.02,
+      "pnl": 75.86,
+      "pnl_pct": 6.28
     },
     {
       "symbol": "RTX",
       "inngang": 187.6,
-      "nåværende": 193.51,
-      "pnl": 14.87,
-      "pnl_pct": 3.15
+      "nåværende": 194.56,
+      "pnl": 17.51,
+      "pnl_pct": 3.71
     }
   ],
   "strat_count": {
     "momentum_trend": 10
   },
   "statistikk": {
-    "completed": 3,
-    "win_rate": 33.3,
-    "avg_win_r": 1.98,
-    "avg_loss_r": -1.92,
-    "expectancy": -0.62,
-    "profit_factor": 0.51,
-    "total_pnl": -47.61,
+    "completed": 7,
+    "win_rate": 42.9,
+    "avg_win_r": 1.237,
+    "avg_loss_r": -1.905,
+    "expectancy": -0.559,
+    "profit_factor": 0.49,
+    "total_pnl": -98.75,
     "strat_count": {
       "momentum_trend": 10
     }
   },
   "totalt": {
     "handler": 10,
-    "lukket": 3,
-    "winrate": 33.3,
-    "expectancy": -0.62,
-    "tot_pnl": -47.61
+    "lukket": 7,
+    "winrate": 42.9,
+    "expectancy": -0.559,
+    "tot_pnl": -98.75
   }
 }
