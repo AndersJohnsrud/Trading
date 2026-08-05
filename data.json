@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-04 21:30",
-  "saldo": 4965.54,
+  "updated": "2026-08-05 21:30",
+  "saldo": 4952.72,
   "trades": [
     {
       "id": 1,
@@ -253,11 +253,82 @@
       "exit_reason": null,
       "outcome_r": null,
       "pnl_usd": null
+    },
+    {
+      "id": 13,
+      "date": "2026-08-05",
+      "symbol": "MSFT",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 487.95,
+      "stop_price": 451.8,
+      "target_price": 540.95,
+      "position_size": 0.6945,
+      "risk_usd": 24.76,
+      "rr_ratio": 1.5,
+      "ai_summary": "MSFT shows explosive 5-day momentum (+24.82%) and dominant relative strength vs SPY (+19.29% / +24.7%), but SMA alignment is broken (sma20 > sma50 however sma200 > both at 431.95), RVOL is weak at 0.78 (no liquidity confirmation), and RSI14 at 77.2 approaches extended territory — valid setup with strong momentum but caution warranted given parabolic extension and below-threshold RVOL.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
+    },
+    {
+      "id": 14,
+      "date": "2026-08-05",
+      "symbol": "MS",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 218.49,
+      "stop_price": 205.02,
+      "target_price": 238.15,
+      "position_size": 1.869,
+      "risk_usd": 24.76,
+      "rr_ratio": 1.5,
+      "ai_summary": "MS shows full SMA alignment with strong 5-day relative strength (+2.52%) and momentum, but 20-day relative strength is negative (-1.82%), RVOL is weak at 0.71 indicating low participation today, and RSI(2) at 100 signals extreme short-term overbought conditions, reducing conviction to MEDIUM.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
+    },
+    {
+      "id": 15,
+      "date": "2026-08-05",
+      "symbol": "GE",
+      "setup": "momentum_trend",
+      "signal_score": 72,
+      "conviction": "MEDIUM",
+      "spy_filter": "positive",
+      "entry_price": 381.6,
+      "stop_price": 360.58,
+      "target_price": 412.18,
+      "position_size": 1.1998,
+      "risk_usd": 24.76,
+      "rr_ratio": 1.5,
+      "ai_summary": "GE shows full MA alignment and strong relative strength vs SPY on both 5-day and 20-day basis, but RSI14 at 72.8 and RSI2 at 100.0 indicate an extremely overbought short-term condition and RVOL below 1.3 signals weak buying participation today, warranting caution and reducing conviction to MEDIUM.",
+      "status": "open",
+      "exit_price": null,
+      "exit_reason": null,
+      "outcome_r": null,
+      "pnl_usd": null
     }
   ],
-  "posisjoner": [],
+  "posisjoner": [
+    {
+      "symbol": "AMZN",
+      "inngang": 277.95,
+      "nåværende": 272.8,
+      "pnl": -12.82,
+      "pnl_pct": -1.85
+    }
+  ],
   "strat_count": {
-    "momentum_trend": 11,
+    "momentum_trend": 14,
     "relative_strength_breakout": 1
   },
   "statistikk": {
@@ -269,12 +340,12 @@
     "profit_factor": 0.49,
     "total_pnl": -98.75,
     "strat_count": {
-      "momentum_trend": 11,
+      "momentum_trend": 14,
       "relative_strength_breakout": 1
     }
   },
   "totalt": {
-    "handler": 12,
+    "handler": 15,
     "lukket": 7,
     "winrate": 42.9,
     "expectancy": -0.559,
