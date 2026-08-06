@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-05 21:30",
-  "saldo": 4952.72,
+  "updated": "2026-08-06 21:30",
+  "saldo": 6300.9,
   "trades": [
     {
       "id": 1,
@@ -322,9 +322,30 @@
     {
       "symbol": "AMZN",
       "inngang": 277.95,
-      "nåværende": 272.8,
-      "pnl": -12.82,
-      "pnl_pct": -1.85
+      "nåværende": 271.95,
+      "pnl": -14.93,
+      "pnl_pct": -2.16
+    },
+    {
+      "symbol": "GE",
+      "inngang": 381.91,
+      "nåværende": 374.6,
+      "pnl": -8.77,
+      "pnl_pct": -1.91
+    },
+    {
+      "symbol": "HON",
+      "inngang": 212.67,
+      "nåværende": 240.0,
+      "pnl": 155.31,
+      "pnl_pct": 12.85
+    },
+    {
+      "symbol": "MS",
+      "inngang": 216.51,
+      "nåværende": 213.97,
+      "pnl": -4.75,
+      "pnl_pct": -1.17
     }
   ],
   "strat_count": {
